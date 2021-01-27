@@ -24,17 +24,9 @@ begin
         'ALUNOS.IDADE_ALUNO,                  '  + #13 +
         'ALUNOS.NOMEMAE_ALUNO,                '  + #13 +
         'ALUNOS.NOMEPAI_ALUNO,                '  + #13 +
-        'ENDERECO.AUTOINC_END,                '  + #13 +
-        'ENDERECO.ALUNO_END,                  '  + #13 +
-        'ENDERECO.RUA_END,                    '  + #13 +
-        'ENDERECO.CIDADE_END,                 '  + #13 +
-        'ENDERECO.ESTADO_END,                 '  + #13 +
-        'ENDERECO.BAIRRO_END,                 '  + #13 +
-        'ENDERECO.NUMERO_END,                 '  + #13 +
         'ESCOLARIDADE.DESCRICAO_ESCOLARIDADE, '  + #13 +
         'ESCOLARIDADE.CODIGO_ESCOLARIDADE    '  + #13 +
         'from ALUNOS                         '  + #13 +
-        'left join ENDERECO on (ALUNOS.CODIGO_ALUNO = ENDERECO.ALUNO_END)    ' + #13 +
         'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)';
 
 end;
