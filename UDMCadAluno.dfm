@@ -41,6 +41,6 @@ object DMCadAluno: TDMCadAluno
   object DSLink: TDataSource
     DataSet = SQLDS
     Left = 312
-    Top = 136
+    Top = 88
   end
 end

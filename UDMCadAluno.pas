@@ -45,11 +45,17 @@ end;
 
 procedure TDMCadAluno.CDSCadastroBeforePost(DataSet: TDataSet);
 begin
-   IF ((Trim(DataSet.FieldByName('Nome_aluno').AsString) = '') or (Trim(DataSet.FieldByName('NOMEMAE_ALUNO').AsString) = '') or (Trim(DataSet.FieldByName('NOMEPAI_ALUNO').AsString) = '') or (DataSet.FieldByName('IDADE_ALUNO').IsNull )) then
+   IF ((Trim(DataSet.FieldByName('Nome_aluno').AsString) = '') or (Trim(DataSet.FieldByName('NOMEMAE_ALUNO').AsString) = '') or (Trim(DataSet.FieldByName('NOMEPAI_ALUNO').AsString) = '')) then
     begin
      MessageDlg('Não é possivel gravar nomes vazio',mtWarning,mbAbortIgnore,0);
      Abort
     end;
+   IF (DataSet.FieldByName('IDADE_ALUNO').IsNull ) then
+    begin
+     MessageDlg('Não é possivel gravar sem selecionar uma idade',mtWarning,mbAbortIgnore,0);
+     Abort
+    end;
+
    end;
 
 procedure TDMCadAluno.CDSCadastroNewRecord(DataSet: TDataSet);
@@ -78,8 +84,7 @@ begin
 
  CDSCadastro.Open;
 
- ClientDSEndereco.DataSetField := TDataSetField (CDSCadastro.FieldByName('SQLDDSEndereco'));
+ ClientDSEndereco.DataSetField := TDataSetField(CDSCadastro.FieldByName('SQLDDSEndereco'));
 
 end;
-
 end.
