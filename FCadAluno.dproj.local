@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/12/07 23:39:20.000.818,=C:\Users\Wanderson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/12/07 23:55:18.000.249,C:\Users\Wanderson\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Aula Delphi novo\Projetos 2021\UCadAluno.pas</Transaction>
+    <Transaction>2020/12/07 23:55:18.000.249,C:\Users\Wanderson\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Aula Delphi novo\Projetos 2021\UCadAluno.dfm</Transaction>
+    <Transaction>2020/12/07 23:55:44.000.329,C:\Users\Wanderson\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Aula Delphi novo\Projetos 2021\FCadAluno.dproj</Transaction>
+    <Transaction>2020/12/08 00:00:50.000.907,=D:\Aula Delphi novo\Projetos 2021\Unit1.pas</Transaction>
+    <Transaction>2020/12/08 00:01:39.000.621,D:\Aula Delphi novo\Projetos 2021\Unit1.pas=D:\Aula Delphi novo\Projetos 2021\UDMCadAluno.pas</Transaction>
+    <Transaction>2020/12/08 00:01:39.000.621,D:\Aula Delphi novo\Projetos 2021\Unit1.dfm=D:\Aula Delphi novo\Projetos 2021\UDMCadAluno.dfm</Transaction>
+    <Transaction>2020/12/16 18:40:34.000.383,=D:\Aula Delphi novo\Projetos 2021\Unit1.pas</Transaction>
+    <Transaction>2020/12/16 18:41:56.000.182,D:\Aula Delphi novo\Projetos 2021\UDMConexao.dfm=D:\Aula Delphi novo\Projetos 2021\Unit1.dfm</Transaction>
+    <Transaction>2020/12/16 18:41:56.000.182,D:\Aula Delphi novo\Projetos 2021\UDMConexao.pas=D:\Aula Delphi novo\Projetos 2021\Unit1.pas</Transaction>
+    <Transaction>2020/12/22 23:23:53.000.905,=D:\Aula Delphi novo\Projetos 2021\Unit1.pas</Transaction>
+    <Transaction>2020/12/22 23:24:43.000.930,D:\Aula Delphi novo\Projetos 2021\Unit1.pas=D:\Aula Delphi novo\Projetos 2021\Class\UClassCadAluno.pas</Transaction>
+    <Transaction>2021/01/25 23:58:45.153,=D:\Aula Delphi novo\Projetos 2021\Unit1.pas</Transaction>
+    <Transaction>2021/01/25 23:59:05.434,D:\Aula Delphi novo\Projetos 2021\Class\UClassCadAlunoEndereco.pas=D:\Aula Delphi novo\Projetos 2021\Unit1.pas</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Class"/>
+    <File Path="Class\UClassCadAluno.pas"/>
+    <File Path="Class\UClassCadAlunoEndereco.pas"/>
+    <File Path="UCadAluno.pas"/>
+    <File Path="UCadAluno.dfm"/>
+    <File Path="UDMCadAluno.pas"/>
+    <File Path="UDMCadAluno.dfm"/>
+    <File Path="UDMConexao.pas"/>
+    <File Path="UDMConexao.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>
