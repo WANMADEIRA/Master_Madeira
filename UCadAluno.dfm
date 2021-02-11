@@ -21,7 +21,7 @@ object frmCadAluno: TfrmCadAluno
     Top = 0
     Width = 558
     Height = 314
-    ActivePage = Endereco
+    ActivePage = Principal
     TabOrder = 1
     object Principal: TTabSheet
       Caption = 'Principal'
@@ -162,7 +162,7 @@ object frmCadAluno: TfrmCadAluno
         Top = 238
         Width = 72
         Height = 21
-        DataField = 'CODIGO_ESCOLARIDADE'
+        DataField = 'ESCOLARIDADE_CODIGO'
         DataSource = DS
         TabOrder = 10
       end

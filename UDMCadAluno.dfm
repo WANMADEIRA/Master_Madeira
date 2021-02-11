@@ -1,8 +1,8 @@
 object DMCadAluno: TDMCadAluno
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 239
-  Width = 412
+  Height = 321
+  Width = 425
   object CDSCadastro: TClientDataSet
     Aggregates = <>
     Params = <>
@@ -19,6 +19,7 @@ object DMCadAluno: TDMCadAluno
     Top = 24
   end
   object SQLDS: TSQLDataSet
+    AfterOpen = SQLDSAfterOpen
     MaxBlobSize = -1
     Params = <>
     Left = 232
