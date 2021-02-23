@@ -8,7 +8,8 @@ uses
   Vcl.Styles,
   UDMConexao in 'UDMConexao.pas' {DMConexao: TDataModule},
   UClassCadAluno in 'Class\UClassCadAluno.pas',
-  UClassCadAlunoEndereco in 'Class\UClassCadAlunoEndereco.pas';
+  UClassCadAlunoEndereco in 'Class\UClassCadAlunoEndereco.pas',
+  UClassCadEscolaridade in 'Class\UClassCadEscolaridade.pas';
 
 {$R *.res}
 
