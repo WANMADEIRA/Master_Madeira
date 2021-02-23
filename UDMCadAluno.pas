@@ -6,7 +6,10 @@ uses
   System.SysUtils, System.Classes, Datasnap.Provider, Data.DB,
   Datasnap.DBClient,
   Data.FMTBcd, Data.SqlExpr, Data.DBXFirebird, Vcl.Dialogs;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
 
 type
   TDMCadAluno = class(TDataModule)
@@ -23,8 +26,14 @@ type
     procedure ClientDSEnderecoAfterOpen(DataSet: TDataSet);
     procedure ClientDSEnderecoNewRecord(DataSet: TDataSet);
     procedure SQLDSAfterOpen(DataSet: TDataSet);
+<<<<<<< HEAD
   private
     procedure ValidateEscolaridade(Sender);
+=======
+
+  private
+    procedure ValidateEscolaridade(Sender: TField);
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
     { Private declarations }
   public
     { Public declarations }
@@ -37,7 +46,11 @@ implementation
 
 { %CLASSGROUP 'Vcl.Controls.TControl' }
 
+<<<<<<< HEAD
 uses UDMConexao, UClassCadAluno, UClassCadAlunoEndereco,UClassCadEscolaridade;
+=======
+uses UDMConexao, UClassCadAluno, UClassCadAlunoEndereco, UClassCadEscolaridade;
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
 
 {$R *.dfm}
 
@@ -48,7 +61,11 @@ end;
 
 procedure TDMCadAluno.CDSCadastroBeforePost(DataSet: TDataSet);
 begin
+<<<<<<< HEAD
   IF((Trim(DataSet.FieldByName('Nome_aluno').AsString) = '') or
+=======
+  IF ((Trim(DataSet.FieldByName('Nome_aluno').AsString) = '') or
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
     (Trim(DataSet.FieldByName('NOMEMAE_ALUNO').AsString) = '') or
     (Trim(DataSet.FieldByName('NOMEPAI_ALUNO').AsString) = '')) then
   begin
@@ -67,7 +84,11 @@ end;
 
 procedure TDMCadAluno.CDSCadastroNewRecord(DataSet: TDataSet);
 begin
+<<<<<<< HEAD
     CDSCadastro.FieldByName('CODIGO_ALUNO').AsInteger :=
+=======
+  CDSCadastro.FieldByName('CODIGO_ALUNO').AsInteger :=
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
     DMConexao.ProximoCodigo('ALUNOS', 'CODIGO_ALUNO');
 end;
 
@@ -85,6 +106,7 @@ begin
 end;
 
 procedure TDMCadAluno.DataModuleCreate(Sender: TObject);
+<<<<<<< HEAD
  begin
   SQLDS.SQLConnection := DMConexao.SQLConnection1;
   SQLDDSEndereco.SQLConnection := DMConexao.SQLConnection1;
@@ -110,7 +132,45 @@ procedure TDMCadAluno.DataModuleCreate(Sender: TObject);
 procedure TDMCadAluno.SQLDSAfterOpen(DataSet: TDataSet);
 begin
  DataSet.FieldByName('DESCRICAO_ESCOLARIDADE').ProviderFlags := [];
+=======
+begin
+  SQLDS.SQLConnection := DMConexao.SQLConnection1;
+  SQLDDSEndereco.SQLConnection := DMConexao.SQLConnection1;
+
+  SQLDS.CommandText := TClassCadAluno.SQLCadastro;
+  SQLDDSEndereco.CommandText := TClassCadAlunoEndereco.SQLCadastro;
+
+  CDSCadastro.Open;
+  CDSCadastro.FieldByName('ESCOLARIDADE_CODIGO').OnValidate :=
+    ValidateEscolaridade;
+  ClientDSEndereco.DataSetField :=
+    TDataSetField(CDSCadastro.FieldByName('SQLDDSEndereco'));
+
+end;
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
+
+Procedure TDMCadAluno.ValidateEscolaridade(Sender: TField);
+var
+  Descricao_escolaridade: String;
+begin
+  Descricao_escolaridade := DMConexao.ExecuteScalar
+    ('select escolaridade.descricao_escolaridade ' + #13 +
+     'from escolaridade ' + #13 +
+     'where escolaridade.codigo_escolaridade = ' + Sender.AsString);
+
+  if (Descricao_escolaridade = '0') then
+    raise Exception.Create('Registro não Encontrado');
+
+  CDSCadastro.FieldByName('DESCRICAO_ESCOLARIDADE').AsString := Descricao_escolaridade;
+end;
+
+<<<<<<< HEAD
+=======
+procedure TDMCadAluno.SQLDSAfterOpen(DataSet: TDataSet);
+begin
+  DataSet.FieldByName('DESCRICAO_ESCOLARIDADE').ProviderFlags := [];
 
 end;
 
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
 end.

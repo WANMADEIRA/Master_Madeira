@@ -1,0 +1,2 @@
+inherited DMCadEscolaridade: TDMCadEscolaridade
+end

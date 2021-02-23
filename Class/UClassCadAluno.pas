@@ -3,6 +3,7 @@ unit UClassCadAluno;
 interface
 
 uses
+<<<<<<< HEAD
   Data.DB;
 
 Type
@@ -10,6 +11,16 @@ Type
     Class function SQLCadastro: String;
     Class procedure ConfigurarCampos(Fields: TFields);
     class function CampoChave: String;
+=======
+  Data.DB, UclassPaiCadastro;
+
+Type
+  TClassCadAluno = Class (TclassPaiCadastro)
+    Class function SQLCadastro: String; override;
+    Class procedure ConfigurarCampos(Fields: TFields); override;
+    class function CampoChave: String; override;
+    Class function NomeTabela: String; override;
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
   End;
 
 implementation
@@ -27,7 +38,15 @@ begin
     'ALUNOS.ESCOLARIDADE_CODIGO           ' + #13 +
     'from ALUNOS                          ' + #13 +
     'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)';
+<<<<<<< HEAD
 
+end;
+=======
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
+
+class function TClassCadAluno.CampoChave: String;
+begin
+  Result := 'CODIGO_ALUNO';
 end;
 
 class function TClassCadAluno.CampoChave: String;
@@ -64,11 +83,25 @@ begin
     ELSE if Field.FieldName = 'NUMERO_END' then
       Field.DisplayLabel := 'NÚMERO';
   end;
+<<<<<<< HEAD
 
   if (Field.FieldName <> CampoChave) THEN
     Field.ProviderFlags := [pfInUpdate]
   Else
     Field.ProviderFlags := [pfInKey, pfInWhere];
 end;
+=======
+
+  if (Field.FieldName <> CampoChave) THEN
+    Field.ProviderFlags := [pfInUpdate]
+  Else
+    Field.ProviderFlags := [pfInKey, pfInWhere];
+end;
+
+class function TClassCadAluno.NomeTabela: String;
+ begin
+  Result:= 'ALUNOS';
+ end;
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
 
 end.

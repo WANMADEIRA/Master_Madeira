@@ -118,6 +118,41 @@
         <DCCReference Include="Class\UClassCadAluno.pas"/>
         <DCCReference Include="Class\UClassCadAlunoEndereco.pas"/>
         <DCCReference Include="Class\UClassCadEscolaridade.pas"/>
+<<<<<<< HEAD
+=======
+        <DCCReference Include="UPaiCadastro.pas">
+            <Form>FPaiCadastro</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UDMPaiCadastro.pas">
+            <Form>DMPaiCadastro</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Class\UclassPaiCadastro.pas"/>
+        <DCCReference Include="UCadAluno2.pas">
+            <Form>FCadAluno2</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UDMCadAluno2.pas">
+            <Form>DMCadAluno2</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UCadEscolaridade.pas">
+            <Form>FCadEscolaridade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UDMCadEscolaridade.pas">
+            <Form>DMCadEscolaridade</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="UCadPrincipal.pas">
+            <Form>Principal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -156,6 +191,7 @@
                         <Extensions>.dll;.bpl</Extensions>
                     </Platform>
                     <Platform Name="iOSDevice64">
+<<<<<<< HEAD
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
                     </Platform>
@@ -171,6 +207,23 @@
                     <Platform Name="iOSSimulator">
                         <Operation>1</Operation>
                         <Extensions>.dylib</Extensions>
+=======
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="OSX32">
+                        <RemoteDir>Contents\MacOS</RemoteDir>
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSDevice32">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+                    </Platform>
+                    <Platform Name="iOSSimulator">
+                        <Operation>1</Operation>
+                        <Extensions>.dylib</Extensions>
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
                     </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectOSXDebug">
@@ -885,6 +938,7 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
+<<<<<<< HEAD
                 <DeployClass Name="iPad_Launch1536x2048">
                     <Platform Name="iOSDevice64">
                         <Operation>1</Operation>
@@ -896,6 +950,8 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
+=======
+>>>>>>> c6e5c62d4481c5055a748dad4e88b0541bc2bbf9
                 <DeployClass Name="Android_LauncherIcon36">
                     <Platform Name="Android">
                         <RemoteDir>res\drawable-ldpi</RemoteDir>
