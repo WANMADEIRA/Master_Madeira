@@ -32,7 +32,7 @@ function TDMConexao.ExecuteScalar(SQL: String): Variant;
 begin
   SQLDS.Close;
   SQLDS.CommandText:= SQL;
-  SQLDS.Open;
+ SQLDS.Open;
 
   Result:= SQLDS.Fields[0].AsVariant;
 

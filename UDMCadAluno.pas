@@ -78,10 +78,8 @@ end;
 
 procedure TDMCadAluno.ClientDSEnderecoNewRecord(DataSet: TDataSet);
 begin
-  DataSet.FieldByName('AUTOINC_END').AsInteger :=
-    DMConexao.ProximoCodigo('ENDERECO', 'AUTOINC_END');
-  DataSet.FieldByName('ALUNO_END').AsInteger :=
-    CDSCadastro.FieldByName('CODIGO_ALUNO').AsInteger;
+  DataSet.FieldByName('AUTOINC_END').AsInteger := DMConexao.ProximoCodigo('ENDERECO', 'AUTOINC_END');
+  DataSet.FieldByName('ALUNO_END').AsInteger :=  CDSCadastro.FieldByName('CODIGO_ALUNO').AsInteger;
 end;
 
 procedure TDMCadAluno.DataModuleCreate(Sender: TObject);
@@ -93,10 +91,9 @@ begin
   SQLDDSEndereco.CommandText := TClassCadAlunoEndereco.SQLCadastro;
 
   CDSCadastro.Open;
-  CDSCadastro.FieldByName('ESCOLARIDADE_CODIGO').OnValidate :=
-    ValidateEscolaridade;
-  ClientDSEndereco.DataSetField :=
-    TDataSetField(CDSCadastro.FieldByName('SQLDDSEndereco'));
+
+  CDSCadastro.FieldByName('ESCOLARIDADE_CODIGO').OnValidate := ValidateEscolaridade;
+  ClientDSEndereco.DataSetField := TDataSetField(CDSCadastro.FieldByName('SQLDDSEndereco'));
 
 end;
 

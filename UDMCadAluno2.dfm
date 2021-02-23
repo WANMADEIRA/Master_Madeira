@@ -1,6 +1,6 @@
 inherited DMCadAluno2: TDMCadAluno2
   OldCreateOrder = True
-  inherited CDSCadastro: TClientDataSet
-    OnNewRecord = CDSCadastroNewRecord
+  inherited SQLDS: TSQLDataSet
+    AfterOpen = SQLDSAfterOpen
   end
 end

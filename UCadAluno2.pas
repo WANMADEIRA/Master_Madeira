@@ -21,6 +21,8 @@ type
     DBEdit1: TDBEdit;
     Editidade: TDBEdit;
     Label5: TLabel;
+    TabSheet1: TTabSheet;
+    DBEdit2: TDBEdit;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

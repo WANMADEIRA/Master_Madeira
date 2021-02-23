@@ -21,7 +21,7 @@ object frmCadAluno: TfrmCadAluno
     Top = 0
     Width = 558
     Height = 314
-    ActivePage = Principal
+    ActivePage = Endereco
     TabOrder = 1
     object Principal: TTabSheet
       Caption = 'Principal'

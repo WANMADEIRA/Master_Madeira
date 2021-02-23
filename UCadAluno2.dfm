@@ -4,7 +4,12 @@ inherited FCadAluno2: TFCadAluno2
   PixelsPerInch = 96
   TextHeight = 13
   inherited PGPrincipal: TPageControl
+    ActivePage = TabSheet1
     inherited Principal: TTabSheet
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Label2: TLabel
         Left = 24
         Top = 77
@@ -93,6 +98,18 @@ inherited FCadAluno2: TFCadAluno2
         DataField = 'IDADE_ALUNO'
         DataSource = DS
         TabOrder = 5
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'Endere'#231'o'
+      ImageIndex = 1
+      object DBEdit2: TDBEdit
+        Left = 12
+        Top = 68
+        Width = 293
+        Height = 21
+        DataSource = DS
+        TabOrder = 0
       end
     end
   end
