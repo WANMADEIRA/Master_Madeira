@@ -10,8 +10,14 @@ uses
   UClassCadAluno in 'Class\UClassCadAluno.pas',
   UClassCadAlunoEndereco in 'Class\UClassCadAlunoEndereco.pas',
   UClassCadEscolaridade in 'Class\UClassCadEscolaridade.pas',
-  UPaiCadastro in 'UPaiCadastro.pas' {Form1},
-  UDMPaiCadastro in 'UDMPaiCadastro.pas' {DMPaiCadastro: TDataModule};
+  UPaiCadastro in 'UPaiCadastro.pas' {FPaiCadastro},
+  UDMPaiCadastro in 'UDMPaiCadastro.pas' {DMPaiCadastro: TDataModule},
+  UclassPaiCadastro in 'Class\UclassPaiCadastro.pas',
+  UCadAluno2 in 'UCadAluno2.pas' {FCadAluno2},
+  UDMCadAluno2 in 'UDMCadAluno2.pas' {DMCadAluno2: TDataModule},
+  UCadEscolaridade in 'UCadEscolaridade.pas' {FCadEscolaridade},
+  UDMCadEscolaridade in 'UDMCadEscolaridade.pas' {DMCadEscolaridade: TDataModule},
+  UCadPrincipal in 'UCadPrincipal.pas' {Principal};
 
 {$R *.res}
 
@@ -20,8 +26,6 @@ begin
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Windows10 Dark');
   Application.CreateForm(TDMConexao, DMConexao);
-  Application.CreateForm(TfrmCadAluno, frmCadAluno);
-  Application.CreateForm(TForm1, Form1);
-  Application.CreateForm(TDMPaiCadastro, DMPaiCadastro);
+  Application.CreateForm(TPrincipal, Principal);
   Application.Run;
 end.

@@ -3,13 +3,14 @@ unit UClassCadAluno;
 interface
 
 uses
-  Data.DB;
+  Data.DB, UclassPaiCadastro;
 
 Type
-  TClassCadAluno = Class
-    Class function SQLCadastro: String;
-    Class procedure ConfigurarCampos(Fields: TFields);
-    class function CampoChave: String;
+  TClassCadAluno = Class (TclassPaiCadastro)
+    Class function SQLCadastro: String; override;
+    Class procedure ConfigurarCampos(Fields: TFields); override;
+    class function CampoChave: String; override;
+    Class function NomeTabela: String; override;
   End;
 
 implementation
@@ -70,5 +71,10 @@ begin
   Else
     Field.ProviderFlags := [pfInKey, pfInWhere];
 end;
+
+class function TClassCadAluno.NomeTabela: String;
+ begin
+  Result:= 'ALUNOS';
+ end;
 
 end.

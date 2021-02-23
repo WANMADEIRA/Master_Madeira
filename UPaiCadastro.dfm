@@ -1,4 +1,4 @@
-object Form1: TForm1
+object FPaiCadastro: TFPaiCadastro
   Left = 0
   Top = 0
   Caption = 'FPaiCadastro'
@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PGPrincipal: TPageControl
@@ -22,8 +23,6 @@ object Form1: TForm1
     TabOrder = 0
     object Principal: TTabSheet
       Caption = 'Principal'
-      ExplicitTop = 112
-      ExplicitHeight = 286
     end
   end
   object Panel1: TPanel
@@ -39,6 +38,7 @@ object Form1: TForm1
       Height = 25
       Caption = 'Inserir'
       TabOrder = 0
+      OnClick = BtnInsertClick
     end
     object BtnGravar: TButton
       Left = 16
@@ -47,6 +47,7 @@ object Form1: TForm1
       Height = 25
       Caption = 'Gravar'
       TabOrder = 1
+      OnClick = BtnGravarClick
     end
     object BtnExcluir: TButton
       Left = 16
@@ -55,6 +56,7 @@ object Form1: TForm1
       Height = 25
       Caption = 'Excluir'
       TabOrder = 2
+      OnClick = BtnExcluirClick
     end
     object BtnCancelar: TButton
       Left = 16
@@ -63,6 +65,7 @@ object Form1: TForm1
       Height = 25
       Caption = 'Cancelar'
       TabOrder = 3
+      OnClick = BtnCancelarClick
     end
   end
   object Panel2: TPanel
@@ -72,8 +75,6 @@ object Form1: TForm1
     Height = 41
     Align = alTop
     TabOrder = 2
-    ExplicitLeft = 248
-    ExplicitWidth = 185
     object EditCodAluno: TLabel
       Left = 24
       Top = 14
@@ -88,6 +89,7 @@ object Form1: TForm1
       Height = 25
       Caption = '<<'
       TabOrder = 0
+      OnClick = Button1Click
     end
     object Button2: TButton
       Left = 577
@@ -96,6 +98,7 @@ object Form1: TForm1
       Height = 25
       Caption = '<'
       TabOrder = 1
+      OnClick = Button2Click
     end
     object Button3: TButton
       Left = 608
@@ -104,6 +107,7 @@ object Form1: TForm1
       Height = 25
       Caption = '>'
       TabOrder = 2
+      OnClick = Button3Click
     end
     object Button4: TButton
       Left = 639
@@ -112,6 +116,7 @@ object Form1: TForm1
       Height = 25
       Caption = '>>'
       TabOrder = 3
+      OnClick = Button4Click
     end
     object EditCodigo: TDBEdit
       Left = 108
@@ -121,5 +126,10 @@ object Form1: TForm1
       DataField = 'CODIGO_ALUNO'
       TabOrder = 4
     end
+  end
+  object DS: TDataSource
+    OnStateChange = DSStateChange
+    Left = 312
+    Top = 8
   end
 end
