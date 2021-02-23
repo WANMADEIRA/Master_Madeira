@@ -22,7 +22,16 @@ type
     Editidade: TDBEdit;
     Label5: TLabel;
     TabSheet1: TTabSheet;
-    DBEdit2: TDBEdit;
+    DBeditBairro: TDBEdit;
+    Bairro: TLabel;
+    Label1: TLabel;
+    DBEdit_Rua: TDBEdit;
+    Label6: TLabel;
+    DBEditCidade: TDBEdit;
+    DBEditEstado: TDBEdit;
+    Label7: TLabel;
+    Dbedit_numero: TDBEdit;
+    Label8: TLabel;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

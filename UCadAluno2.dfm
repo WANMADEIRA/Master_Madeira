@@ -103,13 +103,85 @@ inherited FCadAluno2: TFCadAluno2
     object TabSheet1: TTabSheet
       Caption = 'Endere'#231'o'
       ImageIndex = 1
-      object DBEdit2: TDBEdit
-        Left = 12
-        Top = 68
-        Width = 293
+      object Bairro: TLabel
+        Left = 16
+        Top = 41
+        Width = 39
+        Height = 13
+        Caption = 'BAIRRO'
+      end
+      object Label1: TLabel
+        Left = 16
+        Top = 87
+        Width = 21
+        Height = 13
+        Caption = 'RUA'
+      end
+      object Label6: TLabel
+        Left = 16
+        Top = 147
+        Width = 38
+        Height = 13
+        Caption = 'CIDADE'
+      end
+      object Label7: TLabel
+        Left = 400
+        Top = 147
+        Width = 13
+        Height = 13
+        Caption = 'UF'
+      end
+      object Label8: TLabel
+        Left = 400
+        Top = 93
+        Width = 43
+        Height = 13
+        Caption = 'NUMERO'
+      end
+      object DBeditBairro: TDBEdit
+        Left = 16
+        Top = 60
+        Width = 505
         Height = 21
+        DataField = 'BAIRRO_END'
         DataSource = DS
         TabOrder = 0
+      end
+      object DBEdit_Rua: TDBEdit
+        Left = 16
+        Top = 112
+        Width = 337
+        Height = 21
+        DataField = 'RUA_END'
+        DataSource = DS
+        TabOrder = 1
+      end
+      object DBEditCidade: TDBEdit
+        Left = 16
+        Top = 166
+        Width = 337
+        Height = 21
+        DataField = 'CIDADE_END'
+        DataSource = DS
+        TabOrder = 2
+      end
+      object DBEditEstado: TDBEdit
+        Left = 400
+        Top = 166
+        Width = 121
+        Height = 21
+        DataField = 'ESTADO_END'
+        DataSource = DS
+        TabOrder = 3
+      end
+      object Dbedit_numero: TDBEdit
+        Left = 400
+        Top = 112
+        Width = 121
+        Height = 21
+        DataField = 'NUMERO_END'
+        DataSource = DS
+        TabOrder = 4
       end
     end
   end
