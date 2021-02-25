@@ -35,6 +35,7 @@ type
     procedure BtnExcluirClick(Sender: TObject);
     procedure BtnCancelarClick(Sender: TObject);
     procedure DSStateChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -102,6 +103,11 @@ begin
 end;
 
 
+
+procedure TFPaiCadastro.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ Action:= caFree;
+end;
 
 procedure TFPaiCadastro.FormCreate(Sender: TObject);
 begin
