@@ -28,7 +28,7 @@ object Principal: TPrincipal
       Top = 7
       Width = 105
       Height = 97
-      Caption = 'Cadastro de Alunos'
+      Caption = 'Cadastro de Alunos 2'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWhite
       Font.Height = -11
@@ -61,6 +61,23 @@ object Principal: TPrincipal
       OnClick = CadEscolaClick
     end
   end
+  object Panel4: TPanel
+    Left = 512
+    Top = 87
+    Width = 121
+    Height = 113
+    Color = clRed
+    ParentBackground = False
+    TabOrder = 2
+    object SpeedButton1: TSpeedButton
+      Left = 8
+      Top = 7
+      Width = 105
+      Height = 98
+      Caption = 'Cadastro Aluno 1'
+      OnClick = SpeedButton1Click
+    end
+  end
   object MainMenu1: TMainMenu
     Left = 16
     Top = 15
@@ -68,11 +85,9 @@ object Principal: TPrincipal
       Caption = 'Cadastro'
       object Aluno1: TMenuItem
         Caption = 'Aluno'
-        OnClick = Aluno1Click
       end
       object Escolaridade1: TMenuItem
         Caption = 'Escolaridade'
-        OnClick = Escolaridade1Click
       end
     end
     object Manuteno1: TMenuItem

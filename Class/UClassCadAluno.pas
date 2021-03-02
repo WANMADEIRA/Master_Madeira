@@ -27,7 +27,9 @@ begin
     'ESCOLARIDADE.DESCRICAO_ESCOLARIDADE, ' + #13 +
     'ALUNOS.ESCOLARIDADE_CODIGO           ' + #13 +
     'from ALUNOS                          ' + #13 +
-    'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)';
+    'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)' + #13 +
+    'where alunos.codigo_aluno = :COD' + #13 +
+    'Order by alunos.codigo_aluno';
 
 end;
 

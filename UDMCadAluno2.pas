@@ -31,7 +31,7 @@ begin
  self.FClassFilha := TClassCadAluno.Create;
   inherited;
 
- CDSCadastro.FieldByName('ESCOLARIDADE_CODIGO').OnValidate := ValidateEscolaridade;
+ // CDSCadastro.FieldByName('ESCOLARIDADE_CODIGO').OnValidate := ValidateEscolaridade;
 end;
 
 

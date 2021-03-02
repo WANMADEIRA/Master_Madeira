@@ -19,6 +19,9 @@ type
     { Private declarations }
   public
     FClassFilha : TClassPaiCadastro;
+    Procedure AbrirCadastro(Codigo: Integer);
+    procedure PrimeiroRegistro;
+    Procedure UltimoRegistro;
   end;
 
 var
@@ -29,6 +32,15 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDMPaiCadastro.AbrirCadastro(Codigo: Integer);
+begin
+  CDSCadastro.Close;
+  SQLDS.CommandText := FClassFilha.SQLCadastro;
+  CDSCadastro.FetchParams;
+  CDSCadastro.ParamByName('COD').AsInteger := Codigo ;
+  CDSCadastro.Open;
+end;
 
 procedure TDMPaiCadastro.CDSCadastroAfterDelete(DataSet: TDataSet);
 begin
@@ -48,9 +60,25 @@ end;
 procedure TDMPaiCadastro.DataModuleCreate(Sender: TObject);
 begin
   SQLDS.SQLConnection := DMConexao.SQLConnection1;
-  SQLDS.CommandText := FClassFilha.SQLCadastro;
 
-  CDSCadastro.Open;
+end;
+
+procedure TDMPaiCadastro.PrimeiroRegistro;
+ Var
+  Codigo: Integer;
+begin
+  Codigo:=1;
+  Codigo:= DMConexao.ExecuteScalar('select min(' + FClassFilha.CampoChave + ') From' + FClassFilha.NomeTabela);
+  DMPaiCadastro.AbrirCadastro(Codigo);
+end;
+
+procedure TDMPaiCadastro.UltimoRegistro;
+ Var
+  Codigo: Integer;
+begin
+  Codigo:= DMConexao.ExecuteScalar('select min (CODIGO_ALUNO)from alunos');
+  //Codigo:= DMConexao.ExecuteScalar('select max(' + FClassFilha.CampoChave + ') From' + FClassFilha.NomeTabela);
+  DMPaiCadastro.AbrirCadastro(Codigo);
 
 end;
 

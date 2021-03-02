@@ -1,15 +1,9 @@
 inherited FCadAluno2: TFCadAluno2
   Caption = 'FCadAluno2'
-  Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
   inherited PGPrincipal: TPageControl
-    ActivePage = TabSheet1
     inherited Principal: TTabSheet
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Label2: TLabel
         Left = 24
         Top = 77
@@ -72,24 +66,6 @@ inherited FCadAluno2: TFCadAluno2
         DataSource = DS
         TabOrder = 2
       end
-      object cod_aluno: TDBEdit
-        Left = 24
-        Top = 238
-        Width = 72
-        Height = 21
-        DataField = 'ESCOLARIDADE_CODIGO'
-        DataSource = DS
-        TabOrder = 3
-      end
-      object DBEdit1: TDBEdit
-        Left = 102
-        Top = 238
-        Width = 160
-        Height = 21
-        DataField = 'DESCRICAO_ESCOLARIDADE'
-        DataSource = DS
-        TabOrder = 4
-      end
       object Editidade: TDBEdit
         Left = 372
         Top = 32
@@ -97,7 +73,7 @@ inherited FCadAluno2: TFCadAluno2
         Height = 21
         DataField = 'IDADE_ALUNO'
         DataSource = DS
-        TabOrder = 5
+        TabOrder = 3
       end
     end
     object TabSheet1: TTabSheet
@@ -138,51 +114,6 @@ inherited FCadAluno2: TFCadAluno2
         Height = 13
         Caption = 'NUMERO'
       end
-      object DBeditBairro: TDBEdit
-        Left = 16
-        Top = 60
-        Width = 505
-        Height = 21
-        DataField = 'BAIRRO_END'
-        DataSource = DS
-        TabOrder = 0
-      end
-      object DBEdit_Rua: TDBEdit
-        Left = 16
-        Top = 112
-        Width = 337
-        Height = 21
-        DataField = 'RUA_END'
-        DataSource = DS
-        TabOrder = 1
-      end
-      object DBEditCidade: TDBEdit
-        Left = 16
-        Top = 166
-        Width = 337
-        Height = 21
-        DataField = 'CIDADE_END'
-        DataSource = DS
-        TabOrder = 2
-      end
-      object DBEditEstado: TDBEdit
-        Left = 400
-        Top = 166
-        Width = 121
-        Height = 21
-        DataField = 'ESTADO_END'
-        DataSource = DS
-        TabOrder = 3
-      end
-      object Dbedit_numero: TDBEdit
-        Left = 400
-        Top = 112
-        Width = 121
-        Height = 21
-        DataField = 'NUMERO_END'
-        DataSource = DS
-        TabOrder = 4
-      end
     end
   end
   inherited Panel1: TPanel
@@ -195,5 +126,21 @@ inherited FCadAluno2: TFCadAluno2
     inherited EditCodigo: TDBEdit
       DataSource = DS
     end
+  end
+  object cod_Esc_Alu: TDBEdit [3]
+    Left = 36
+    Top = 305
+    Width = 121
+    Height = 21
+    DataField = 'ALUNOS.ESCOLARIDADE_CODIGO'
+    DataSource = DS
+    TabOrder = 3
+  end
+  object DBEdit2: TDBEdit [4]
+    Left = 163
+    Top = 305
+    Width = 342
+    Height = 21
+    TabOrder = 4
   end
 end

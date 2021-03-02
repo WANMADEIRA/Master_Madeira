@@ -72,7 +72,7 @@ end;
 
 procedure TFPaiCadastro.Button1Click(Sender: TObject);
 begin
-  DS.DataSet.First;
+  DMCadastro.PrimeiroRegistro;
 end;
 
 procedure TFPaiCadastro.Button2Click(Sender: TObject);
@@ -87,7 +87,7 @@ end;
 
 procedure TFPaiCadastro.Button4Click(Sender: TObject);
 begin
-  DS.DataSet.Last;
+  DMCadastro.UltimoRegistro;
 end;
 
 procedure TFPaiCadastro.DSStateChange(Sender: TObject);

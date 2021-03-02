@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCadAluno2, UCadEscolaridade,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Menus;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.Menus, UCadAluno;
 
 type
   TPrincipal = class(TForm)
@@ -18,10 +18,13 @@ type
     Aluno1: TMenuItem;
     Escolaridade1: TMenuItem;
     Manuteno1: TMenuItem;
+    Panel4: TPanel;
+    SpeedButton1: TSpeedButton;
     procedure CADalunoClick(Sender: TObject);
     procedure CadEscolaClick(Sender: TObject);
-    procedure Aluno1Click(Sender: TObject);
-    procedure Escolaridade1Click(Sender: TObject);
+
+
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,12 +38,6 @@ implementation
 
 {$R *.dfm}
 
-procedure TPrincipal.Aluno1Click(Sender: TObject);
-begin
-  FCadAluno2 := TFCadAluno2.Create(self);
-  FCadAluno2.ShowModal;
-end;
-
 procedure TPrincipal.CADalunoClick(Sender: TObject);
 begin
   FCadAluno2 := TFCadAluno2.Create(self);
@@ -48,15 +45,22 @@ begin
 end;
 
 procedure TPrincipal.CadEscolaClick(Sender: TObject);
+ begin
+  FCadEscolaridade := TFCadEscolaridade.Create(self);
+  FCadEscolaridade.ShowModal;
+ end;
+
+procedure TPrincipal.SpeedButton1Click(Sender: TObject);
 begin
- FCadEscolaridade := TFCadEscolaridade.Create(self);
- FCadEscolaridade.ShowModal;
+ frmCadAluno := TfrmCadAluno.Create(self);
+ frmCadAluno.ShowModal;
 end;
 
-procedure TPrincipal.Escolaridade1Click(Sender: TObject);
-begin
- FCadEscolaridade := TFCadEscolaridade.Create(self);
- FCadEscolaridade.ShowModal;
-end;
+
+
+
+
+
+
 
 end.

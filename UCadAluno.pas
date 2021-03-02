@@ -138,6 +138,7 @@ end;
 
 procedure TfrmCadAluno.FormCreate(Sender: TObject);
 begin
+
  DMCadAluno:= TDMCadAluno.create(self);
 end;
 

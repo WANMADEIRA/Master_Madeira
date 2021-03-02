@@ -25,7 +25,7 @@ end;
 
 class function TClassPaiCadastro.CampoChave: String;
 begin
-  Result := 'CODIGO_ALUNO';
+ // Result := 'CODIGO_ALUNO';
 end;
 
 class procedure TClassPaiCadastro.ConfigurarCampos(Fields: TFields);
@@ -37,7 +37,7 @@ end;
 
 class function TClassPaiCadastro.NomeTabela: String;
 begin
-
+  // Result := 'ALUNOS';
 end;
 
 end.

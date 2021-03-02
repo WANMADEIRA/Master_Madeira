@@ -17,21 +17,16 @@ type
     Label4: TLabel;
     EditNomeMae: TDBEdit;
     Label9: TLabel;
-    cod_aluno: TDBEdit;
-    DBEdit1: TDBEdit;
     Editidade: TDBEdit;
     Label5: TLabel;
     TabSheet1: TTabSheet;
-    DBeditBairro: TDBEdit;
     Bairro: TLabel;
     Label1: TLabel;
-    DBEdit_Rua: TDBEdit;
     Label6: TLabel;
-    DBEditCidade: TDBEdit;
-    DBEditEstado: TDBEdit;
     Label7: TLabel;
-    Dbedit_numero: TDBEdit;
     Label8: TLabel;
+    cod_Esc_Alu: TDBEdit;
+    DBEdit2: TDBEdit;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
