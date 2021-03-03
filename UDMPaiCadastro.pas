@@ -36,6 +36,7 @@ implementation
 
 procedure TDMPaiCadastro.AbrirCadastro(Codigo: Integer);
 begin
+  FCodigoAtual := Codigo;
   CDSCadastro.Close;
   SQLDS.CommandText := FClassFilha.SQLCadastro;
   CDSCadastro.FetchParams;
@@ -44,23 +45,27 @@ begin
 end;
 
 procedure TDMPaiCadastro.Anterior;
+VAR
+ Codigo :Integer;
 begin
-  FCodigoAtual := DMConexao.ExecuteScalar('select coalesce (min(' + FClassFilha.CampoChave + '), -1) From ' +
+  Codigo := DMConexao.ExecuteScalar('select coalesce (max(' + FClassFilha.CampoChave + '), -1) From ' +
                                            FClassFilha.NomeTabela + ' Where ' +
                                            FClassFilha.CampoChave + ' < ' + IntToStr(FCodigoAtual));
 
-  if FCodigoAtual > -1 then
-   AbrirCadastro(FCodigoAtual);
+  if Codigo > -1 then
+   AbrirCadastro(Codigo);
 end;
 
 procedure TDMPaiCadastro.Proximo;
+VAR
+ Codigo :Integer;
 begin
-  FCodigoAtual := DMConexao.ExecuteScalar('select coalesce (min(' + FClassFilha.CampoChave + '), -1) From ' +
+  Codigo := DMConexao.ExecuteScalar('select coalesce (min(' + FClassFilha.CampoChave + '), -1) From ' +
                                            FClassFilha.NomeTabela + ' Where ' +
                                            FClassFilha.CampoChave + ' > ' + IntToStr(FCodigoAtual));
 
-  if FCodigoAtual > -1 then
-   AbrirCadastro(FCodigoAtual);
+  if Codigo > -1 then
+   AbrirCadastro(Codigo);
 end;
 
 procedure TDMPaiCadastro.CDSCadastroAfterDelete(DataSet: TDataSet);

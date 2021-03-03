@@ -24,7 +24,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Windows10 Purple');
+  TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TDMConexao, DMConexao);
   Application.CreateForm(TPrincipal, Principal);
   Application.Run;

@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
-  Vcl.ExtCtrls, Vcl.ComCtrls, UClassPaiCadastro, UDMPaiCadastro, Data.DB;
+  Vcl.ExtCtrls, Vcl.ComCtrls, UClassPaiCadastro, UDMPaiCadastro, Data.DB,
+  Vcl.Imaging.jpeg;
 
 type
   TFPaiCadastro = class(TForm)
@@ -25,6 +26,7 @@ type
     EditCodAluno: TLabel;
     EditCodigo: TDBEdit;
     DS: TDataSource;
+    Image1: TImage;
     procedure FormCreate(Sender: TObject);
     procedure BtnInsertClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);

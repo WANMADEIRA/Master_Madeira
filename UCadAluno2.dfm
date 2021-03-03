@@ -75,6 +75,24 @@ inherited FCadAluno2: TFCadAluno2
         DataSource = DS
         TabOrder = 3
       end
+      object DBEdit2: TDBEdit
+        Left = 151
+        Top = 234
+        Width = 342
+        Height = 21
+        DataField = 'DESCRICAO_ESCOLARIDADE'
+        DataSource = DS
+        TabOrder = 4
+      end
+      object cod_Esc_Alu: TDBEdit
+        Left = 24
+        Top = 234
+        Width = 121
+        Height = 21
+        DataField = 'ESCOLARIDADE_CODIGO'
+        DataSource = DS
+        TabOrder = 5
+      end
     end
     object TabSheet1: TTabSheet
       Caption = 'Endere'#231'o'
@@ -116,33 +134,9 @@ inherited FCadAluno2: TFCadAluno2
       end
     end
   end
-  inherited Panel1: TPanel
-    inherited BtnCancelar: TButton
-      Top = 136
-      ExplicitTop = 136
-    end
-  end
   inherited Panel2: TPanel
     inherited EditCodigo: TDBEdit
       DataSource = DS
     end
-  end
-  object cod_Esc_Alu: TDBEdit [3]
-    Left = 36
-    Top = 305
-    Width = 121
-    Height = 21
-    DataField = 'ESCOLARIDADE_CODIGO'
-    DataSource = DS
-    TabOrder = 3
-  end
-  object DBEdit2: TDBEdit [4]
-    Left = 163
-    Top = 305
-    Width = 342
-    Height = 21
-    DataField = 'DESCRICAO_ESCOLARIDADE'
-    DataSource = DS
-    TabOrder = 4
   end
 end
