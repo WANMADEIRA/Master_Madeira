@@ -132,7 +132,7 @@ inherited FCadAluno2: TFCadAluno2
     Top = 305
     Width = 121
     Height = 21
-    DataField = 'ALUNOS.ESCOLARIDADE_CODIGO'
+    DataField = 'ESCOLARIDADE_CODIGO'
     DataSource = DS
     TabOrder = 3
   end
@@ -141,6 +141,8 @@ inherited FCadAluno2: TFCadAluno2
     Top = 305
     Width = 342
     Height = 21
+    DataField = 'DESCRICAO_ESCOLARIDADE'
+    DataSource = DS
     TabOrder = 4
   end
 end

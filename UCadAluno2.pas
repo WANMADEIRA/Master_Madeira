@@ -41,9 +41,11 @@ implementation
 
 {$R *.dfm}
 
+uses UDMPaiCadastro;
+
 procedure TFCadAluno2.FormCreate(Sender: TObject);
 begin
-  self.DMCadastro:= TDMCadAluno2.Create(self);
+  DMPaiCadastro := TDMCadAluno2.Create(self);
   inherited;
 end;
 

@@ -27,7 +27,7 @@ implementation
 
 procedure TFCadEscolaridade.FormCreate(Sender: TObject);
 begin
-  Self.DMCadastro := TDMCadEscolaridade.Create(self);
+  DMPaiCadastro := TDMCadEscolaridade.Create(self);
   inherited;
 
 end;

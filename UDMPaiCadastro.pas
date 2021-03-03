@@ -18,18 +18,19 @@ type
   private
     { Private declarations }
   public
-    FClassFilha : TClassPaiCadastro;
+    FClassFilha: TClassPaiCadastro;
+    FCodigoAtual: Integer;
     Procedure AbrirCadastro(Codigo: Integer);
     procedure PrimeiroRegistro;
     Procedure UltimoRegistro;
-  end;
+    Procedure Proximo;
+    Procedure Anterior;
 
-var
-  DMPaiCadastro: TDMPaiCadastro;
+  end;
 
 implementation
 
-{%CLASSGROUP 'Vcl.Controls.TControl'}
+{ %CLASSGROUP 'Vcl.Controls.TControl' }
 
 {$R *.dfm}
 
@@ -38,47 +39,61 @@ begin
   CDSCadastro.Close;
   SQLDS.CommandText := FClassFilha.SQLCadastro;
   CDSCadastro.FetchParams;
-  CDSCadastro.ParamByName('COD').AsInteger := Codigo ;
+  CDSCadastro.ParamByName('COD').AsInteger := Codigo;
   CDSCadastro.Open;
+end;
+
+procedure TDMPaiCadastro.Anterior;
+begin
+  FCodigoAtual := DMConexao.ExecuteScalar('select coalesce (min(' + FClassFilha.CampoChave + '), -1) From ' +
+                                           FClassFilha.NomeTabela + ' Where ' +
+                                           FClassFilha.CampoChave + ' < ' + IntToStr(FCodigoAtual));
+
+  if FCodigoAtual > -1 then
+   AbrirCadastro(FCodigoAtual);
+end;
+
+procedure TDMPaiCadastro.Proximo;
+begin
+  FCodigoAtual := DMConexao.ExecuteScalar('select coalesce (min(' + FClassFilha.CampoChave + '), -1) From ' +
+                                           FClassFilha.NomeTabela + ' Where ' +
+                                           FClassFilha.CampoChave + ' > ' + IntToStr(FCodigoAtual));
+
+  if FCodigoAtual > -1 then
+   AbrirCadastro(FCodigoAtual);
 end;
 
 procedure TDMPaiCadastro.CDSCadastroAfterDelete(DataSet: TDataSet);
 begin
- CDSCadastro.ApplyUpdates(-1);
+  CDSCadastro.ApplyUpdates(-1);
 end;
 
 procedure TDMPaiCadastro.CDSCadastroAfterPost(DataSet: TDataSet);
 begin
- CDSCadastro.ApplyUpdates(-1);
+  CDSCadastro.ApplyUpdates(-1);
 end;
 
 procedure TDMPaiCadastro.CDSCadastroNewRecord(DataSet: TDataSet);
 begin
- CDSCadastro.FieldByName(FClassFilha.CampoChave).AsInteger :=  DMConexao.ProximoCodigo(FclassFilha.NomeTabela, FClassFilha.CampoChave);
+  CDSCadastro.FieldByName(FClassFilha.CampoChave).AsInteger := DMConexao.ProximoCodigo(FClassFilha.NomeTabela, FClassFilha.CampoChave);
 end;
 
 procedure TDMPaiCadastro.DataModuleCreate(Sender: TObject);
 begin
   SQLDS.SQLConnection := DMConexao.SQLConnection1;
-
+  FCodigoAtual := -1;
 end;
 
 procedure TDMPaiCadastro.PrimeiroRegistro;
- Var
-  Codigo: Integer;
 begin
-  Codigo:=1;
-  Codigo:= DMConexao.ExecuteScalar('select min(' + FClassFilha.CampoChave + ') From' + FClassFilha.NomeTabela);
-  DMPaiCadastro.AbrirCadastro(Codigo);
+  FCodigoAtual := DMConexao.ExecuteScalar('select min(' + FClassFilha.CampoChave + ') From ' + FClassFilha.NomeTabela);
+  AbrirCadastro(FCodigoAtual);
 end;
 
 procedure TDMPaiCadastro.UltimoRegistro;
- Var
-  Codigo: Integer;
 begin
-  Codigo:= DMConexao.ExecuteScalar('select min (CODIGO_ALUNO)from alunos');
-  //Codigo:= DMConexao.ExecuteScalar('select max(' + FClassFilha.CampoChave + ') From' + FClassFilha.NomeTabela);
-  DMPaiCadastro.AbrirCadastro(Codigo);
+  FCodigoAtual := DMConexao.ExecuteScalar('select max(' + FClassFilha.CampoChave + ') From ' + FClassFilha.NomeTabela);
+  AbrirCadastro(FCodigoAtual);
 
 end;
 

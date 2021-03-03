@@ -28,8 +28,8 @@ begin
     'ALUNOS.ESCOLARIDADE_CODIGO           ' + #13 +
     'from ALUNOS                          ' + #13 +
     'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)' + #13 +
-    'where alunos.codigo_aluno = :COD' + #13 +
-    'Order by alunos.codigo_aluno';
+    'where alunos.codigo_aluno = :COD';
+   // 'Order by alunos.codigo_aluno';
 
 end;
 

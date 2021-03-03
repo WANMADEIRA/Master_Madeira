@@ -28,7 +28,7 @@ implementation
 
 procedure TDMCadAluno2.DataModuleCreate(Sender: TObject);
 begin
- self.FClassFilha := TClassCadAluno.Create;
+  FClassFilha := TClassCadAluno.Create;
   inherited;
 
  // CDSCadastro.FieldByName('ESCOLARIDADE_CODIGO').OnValidate := ValidateEscolaridade;

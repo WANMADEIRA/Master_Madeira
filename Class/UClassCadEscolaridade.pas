@@ -41,9 +41,10 @@ end;
 
 class function TClassCadEscolaridade.SQLCadastro: String;
 begin
- Result:=  'SELECT escolaridade.codigo_escolaridade,'       +#13+
+ Result:=  'SELECT escolaridade.codigo_escolaridade,' +#13+
            'escolaridade.descricao_escolaridade'      +#13+
-           'FROM ESCOLARIDADE' ;
+           'FROM ESCOLARIDADE'                        +#13+
+           'WHERE ESCOLARIDADE.CODIGO_ESCOLARIDADE = :COD';
 // 'ALUNOS.ESCOLARIDADE_CODIGO                '     +#13+
  // 'LEFT join ALUNOS on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)'+#13+
 // 'WHERE ESCOLARIDADE.CODIGO_ESCOLARIDADE = :CODIGO_ESCOLARIDADE' ;

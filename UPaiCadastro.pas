@@ -40,7 +40,9 @@ type
   private
     { Private declarations }
   public
-    DMCadastro: TDMPaiCadastro;
+
+  protected
+    DMPaiCadastro: TDMPaiCadastro;
   end;
 
 var
@@ -72,22 +74,22 @@ end;
 
 procedure TFPaiCadastro.Button1Click(Sender: TObject);
 begin
-  DMCadastro.PrimeiroRegistro;
+  DMPaiCadastro.PrimeiroRegistro;
 end;
 
 procedure TFPaiCadastro.Button2Click(Sender: TObject);
 begin
-  DS.DataSet.prior;
+  DMPaiCadastro.Anterior;
 end;
 
 procedure TFPaiCadastro.Button3Click(Sender: TObject);
 begin
-  DS.DataSet.Next;
+  DMPaiCadastro.Proximo;
 end;
 
 procedure TFPaiCadastro.Button4Click(Sender: TObject);
 begin
-  DMCadastro.UltimoRegistro;
+  DMPaiCadastro.UltimoRegistro;
 end;
 
 procedure TFPaiCadastro.DSStateChange(Sender: TObject);
@@ -111,7 +113,7 @@ end;
 
 procedure TFPaiCadastro.FormCreate(Sender: TObject);
 begin
-  DS.DataSet := DMCadastro.CDSCadastro;
+  DS.DataSet := DMPaiCadastro.CDSCadastro;
 end;
 
 end.
