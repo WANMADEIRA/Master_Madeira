@@ -1,9 +1,18 @@
 inherited FCadAluno2: TFCadAluno2
   Caption = 'FCadAluno2'
+  ClientHeight = 351
+  ExplicitHeight = 390
   PixelsPerInch = 96
   TextHeight = 13
+  inherited Image1: TImage
+    Height = 310
+  end
   inherited PGPrincipal: TPageControl
     inherited Principal: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 550
+      ExplicitHeight = 267
       object Label2: TLabel
         Left = 24
         Top = 77
@@ -93,6 +102,28 @@ inherited FCadAluno2: TFCadAluno2
         DataSource = DS
         TabOrder = 5
       end
+      object Panel3: TPanel
+        Left = 153
+        Top = -1
+        Width = 121
+        Height = 98
+        Caption = 'Foto'
+        Color = clBackground
+        ParentBackground = False
+        TabOrder = 6
+        object DBImage1: TDBImage
+          Left = 7
+          Top = 11
+          Width = 108
+          Height = 78
+          DataField = 'IMAGEM_ALUNO'
+          DataSource = DS
+          Proportional = True
+          Stretch = True
+          TabOrder = 0
+          OnClick = DBImage1Click
+        end
+      end
     end
     object TabSheet1: TTabSheet
       Caption = 'Endere'#231'o'
@@ -138,5 +169,10 @@ inherited FCadAluno2: TFCadAluno2
     inherited EditCodigo: TDBEdit
       DataSource = DS
     end
+  end
+  object OpenPictureDialog: TOpenPictureDialog
+    DefaultExt = '*.jpg'
+    Left = 332
+    Top = 111
   end
 end

@@ -19,13 +19,14 @@ implementation
 
 class function TClassCadAluno.SQLCadastro: String;
 begin
-  Result := 'Select ALUNOS.CODIGO_ALUNO,          ' + #13 +
+  Result := 'Select ALUNOS.CODIGO_ALUNO,  ' + #13 +
     'ALUNOS.NOME_ALUNO,                   ' + #13 +
     'ALUNOS.IDADE_ALUNO,                  ' + #13 +
     'ALUNOS.NOMEMAE_ALUNO,                ' + #13 +
     'ALUNOS.NOMEPAI_ALUNO,                ' + #13 +
     'ESCOLARIDADE.DESCRICAO_ESCOLARIDADE, ' + #13 +
-    'ALUNOS.ESCOLARIDADE_CODIGO           ' + #13 +
+    'ALUNOS.ESCOLARIDADE_CODIGO,          ' + #13 +
+    'ALUNOS.IMAGEM_ALUNO                  ' + #13 +
     'from ALUNOS                          ' + #13 +
     'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)' + #13 +
     'where alunos.codigo_aluno = :COD';

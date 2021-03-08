@@ -3092,7 +3092,7 @@ object FPaiCadastro: TFPaiCadastro
     Width = 686
     Height = 41
     Align = alTop
-    TabOrder = 2
+    TabOrder = 1
     object EditCodAluno: TLabel
       Left = 24
       Top = 14
@@ -3147,10 +3147,12 @@ object FPaiCadastro: TFPaiCadastro
   end
   object Panel1: TPanel
     Left = 572
-    Top = 47
+    Top = 64
     Width = 105
-    Height = 295
-    TabOrder = 1
+    Height = 278
+    Color = clBackground
+    ParentBackground = False
+    TabOrder = 2
     object BtnInsert: TButton
       Left = 15
       Top = 40

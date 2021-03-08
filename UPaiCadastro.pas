@@ -13,11 +13,6 @@ type
   TFPaiCadastro = class(TForm)
     PGPrincipal: TPageControl;
     Principal: TTabSheet;
-    Panel1: TPanel;
-    BtnInsert: TButton;
-    BtnGravar: TButton;
-    BtnExcluir: TButton;
-    BtnCancelar: TButton;
     Panel2: TPanel;
     Button1: TButton;
     Button2: TButton;
@@ -27,6 +22,11 @@ type
     EditCodigo: TDBEdit;
     DS: TDataSource;
     Image1: TImage;
+    Panel1: TPanel;
+    BtnInsert: TButton;
+    BtnGravar: TButton;
+    BtnExcluir: TButton;
+    BtnCancelar: TButton;
     procedure FormCreate(Sender: TObject);
     procedure BtnInsertClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
