@@ -16,16 +16,17 @@ type
     procedure CDSCadastroAfterPost(DataSet: TDataSet);
     procedure CDSCadastroNewRecord(DataSet: TDataSet);
   private
+    FCodigoAtual: Integer;
     { Private declarations }
   public
     FClassFilha: TClassPaiCadastro;
-    FCodigoAtual: Integer;
+
     Procedure AbrirCadastro(Codigo: Integer);
     procedure PrimeiroRegistro;
     Procedure UltimoRegistro;
     Procedure Proximo;
     Procedure Anterior;
-
+    Property CodigoAtual : Integer read FcodigoAtual;
   end;
 
 implementation
@@ -76,6 +77,7 @@ end;
 procedure TDMPaiCadastro.CDSCadastroAfterPost(DataSet: TDataSet);
 begin
   CDSCadastro.ApplyUpdates(-1);
+  FCodigoAtual:= CDSCadastro.FieldByName(FClassFilha.CampoChave).AsInteger
 end;
 
 procedure TDMPaiCadastro.CDSCadastroNewRecord(DataSet: TDataSet);

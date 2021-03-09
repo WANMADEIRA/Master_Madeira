@@ -72,7 +72,7 @@ begin
   if (Field.FieldName <> CampoChave) THEN
     Field.ProviderFlags := [pfInUpdate]
   Else
-    Field.ProviderFlags := [pfInKey, pfInWhere];
+    Field.ProviderFlags := [pfInKey, pfInUpdate ,pfInWhere];
 end;
 
 class function TClassCadAluno.NomeTabela: String;

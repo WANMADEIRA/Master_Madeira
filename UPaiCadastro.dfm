@@ -3086,13 +3086,14 @@ object FPaiCadastro: TFPaiCadastro
       Caption = 'Principal'
     end
   end
-  object Panel2: TPanel
+  object Panelpai: TPanel
     Left = 0
     Top = 0
     Width = 686
     Height = 41
     Align = alTop
     TabOrder = 1
+    OnExit = PanelpaiExit
     object EditCodAluno: TLabel
       Left = 24
       Top = 14
@@ -3136,13 +3137,14 @@ object FPaiCadastro: TFPaiCadastro
       TabOrder = 3
       OnClick = Button4Click
     end
-    object EditCodigo: TDBEdit
+    object EditCodigo: TJvCalcEdit
       Left = 108
-      Top = 11
+      Top = 9
       Width = 121
       Height = 21
-      DataField = 'CODIGO_ALUNO'
+      ImageKind = ikEllipsis
       TabOrder = 4
+      DecimalPlacesAlwaysShown = False
     end
   end
   object Panel1: TPanel

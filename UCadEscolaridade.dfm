@@ -22,10 +22,4 @@ inherited FCadEscolaridade: TFCadEscolaridade
       end
     end
   end
-  inherited Panel2: TPanel
-    inherited EditCodigo: TDBEdit
-      DataField = 'CODIGO_ESCOLARIDADE'
-      DataSource = DS
-    end
-  end
 end
