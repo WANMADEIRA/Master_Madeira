@@ -9,6 +9,7 @@ inherited FCadAluno2: TFCadAluno2
   inherited Image1: TImage
     Width = 683
     Height = 312
+    ExplicitWidth = 683
     ExplicitHeight = 310
   end
   inherited PGPrincipal: TPageControl
@@ -47,6 +48,14 @@ inherited FCadAluno2: TFCadAluno2
         Width = 28
         Height = 13
         Caption = 'Idade'
+      end
+      object imgAluno: TImage
+        Left = 278
+        Top = 0
+        Width = 88
+        Height = 94
+        Stretch = True
+        OnClick = JvDBImage1Click
       end
       object EditNomealuno: TDBEdit
         Left = 24
@@ -113,11 +122,9 @@ inherited FCadAluno2: TFCadAluno2
         TabOrder = 6
         object JvDBImage1: TJvDBImage
           Left = 8
-          Top = 17
+          Top = 14
           Width = 105
           Height = 77
-          DataField = 'IMAGEM_ALUNO'
-          DataSource = DS
           Proportional = True
           Stretch = True
           TabOrder = 0
@@ -167,10 +174,15 @@ inherited FCadAluno2: TFCadAluno2
   end
   inherited Panelpai: TPanel
     Width = 683
+    ExplicitWidth = 683
+  end
+  inherited Panel1: TPanel
+    Top = 67
+    ExplicitTop = 67
   end
   object OpenPictureDialog: TOpenPictureDialog
     DefaultExt = '*.jpg'
-    Left = 332
-    Top = 111
+    Left = 204
+    Top = 39
   end
 end

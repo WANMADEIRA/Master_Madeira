@@ -39,6 +39,7 @@ type
     procedure DSStateChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure PanelpaiExit(Sender: TObject);
+    procedure EditCodigoKeyPress(Sender: TObject; var Key: Char);
 
   private
     { Private declarations }
@@ -118,6 +119,12 @@ begin
 end;
 
 
+
+procedure TFPaiCadastro.EditCodigoKeyPress(Sender: TObject; var Key: Char);
+begin
+  if  key = #13 then
+ Perform(WM_NEXTDLGCTL, 0 ,0);
+end;
 
 procedure TFPaiCadastro.FormClose(Sender: TObject; var Action: TCloseAction);
 begin

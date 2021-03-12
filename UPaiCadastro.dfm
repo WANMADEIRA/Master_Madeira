@@ -3145,6 +3145,7 @@ object FPaiCadastro: TFPaiCadastro
       ImageKind = ikEllipsis
       TabOrder = 4
       DecimalPlacesAlwaysShown = False
+      OnKeyPress = EditCodigoKeyPress
     end
   end
   object Panel1: TPanel

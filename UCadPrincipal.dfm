@@ -4827,6 +4827,14 @@ object Principal: TPrincipal
       OnClick = SpeedButton1Click
     end
   end
+  object JvTreeView1: TJvTreeView
+    Left = 8
+    Top = 80
+    Width = 121
+    Height = 97
+    Indent = 19
+    TabOrder = 3
+  end
   object MainMenu1: TMainMenu
     Left = 16
     Top = 15

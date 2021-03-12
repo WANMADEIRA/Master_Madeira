@@ -31,12 +31,13 @@ type
     OpenPictureDialog: TOpenPictureDialog;
     Panel3: TPanel;
     JvDBImage1: TJvDBImage;
+    imgAluno: TImage;
     procedure FormCreate(Sender: TObject);
     procedure JvDBImage1Click(Sender: TObject);
 
 
   private
-    { Private declarations }
+    procedure CarregarImagem(Field: TField);
   public
     { Public declarations }
   end;
@@ -61,19 +62,68 @@ uses UDMPaiCadastro;
 
 
 
+procedure TFCadAluno2.CarregarImagem(Field: TField);
+var
+  MS: TMemoryStream;
+begin
+  try
+    MS := TMemoryStream.Create;
+    MS.Clear;
+
+    TBlobField(Field).SaveToStream(MS);
+
+    MS.Position := 0;
+
+    imgAluno.Picture.Bitmap.LoadFromStream(MS);
+  finally
+    MS.Free;
+  end;
+
+end;
+
 procedure TFCadAluno2.FormCreate(Sender: TObject);
 begin
   DMPaiCadastro := TDMCadAluno2.Create(self);
   inherited;
+  TDMCadAluno2(DMPaiCadastro).CarregarImagem := CarregarImagem;
 end;
 
-
-
 procedure TFCadAluno2.JvDBImage1Click(Sender: TObject);
+var
+  MS: TMemoryStream;
+  IMG: TPicture;
+  BMP: TBitmap;
+  Dir: String;
 begin
   inherited;
     if OpenPictureDialog.Execute then
-     JvDBImage1.Picture.LoadFromFile(OpenPictureDialog.FileName);
+    begin
+     // JvDBImage1.Picture.Bitmap.LoadFromFile(OpenPictureDialog.FileName);
+
+
+     // imgAluno.Picture.LoadFromFile(OpenPictureDialog.FileName);
+
+      try
+        MS := TMemoryStream.Create;
+        IMG := TPicture.Create;
+        BMP := TBitmap.Create;
+
+        IMG.LoadFromFile(OpenPictureDialog.FileName);
+        imgAluno.Picture.LoadFromFile(OpenPictureDialog.FileName);
+
+        BMP.Canvas.Draw(0, 0, IMG.Graphic);
+
+        Dir := ExtractFilePath(ParamStr(0)) + '/temp.bmp';
+        BMP.Canvas.Refresh;
+        BMP.SaveToFile(Dir);
+        //
+        TBlobField(DS.DataSet.FieldByName('IMAGEM_ALUNO')).LoadFromFile(Dir);
+      finally
+        MS.Free;
+        IMG.Free;
+        BMP.Free;
+      end;
+    end;
 end;
 
 end.

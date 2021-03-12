@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UCadAluno2, UCadEscolaridade,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.Menus, UCadAluno, Vcl.Imaging.jpeg,
-  Vcl.Imaging.pngimage;
+  Vcl.Imaging.pngimage, Vcl.ComCtrls, JvExComCtrls, JvComCtrls;
 
 type
   TPrincipal = class(TForm)
@@ -22,6 +22,7 @@ type
     Panel4: TPanel;
     SpeedButton1: TSpeedButton;
     Image1: TImage;
+    JvTreeView1: TJvTreeView;
     procedure CADalunoClick(Sender: TObject);
     procedure CadEscolaClick(Sender: TObject);
 

@@ -10,11 +10,13 @@ type
   TDMCadAluno2 = class(TDMPaiCadastro)
     procedure DataModuleCreate(Sender: TObject);
     procedure SQLDSAfterOpen(DataSet: TDataSet);
+    procedure CDSCadastroAfterOpen(DataSet: TDataSet);
   private
+    FCarregarImagem: TProc<TField>;
     procedure ValidateEscolaridade(Sender: TField);
     { Private declarations }
   public
-    { Public declarations }
+    property CarregarImagem: TProc<TField> read FCarregarImagem write FCarregarImagem;
   end;
 
 var
@@ -25,6 +27,12 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDMCadAluno2.CDSCadastroAfterOpen(DataSet: TDataSet);
+begin
+  inherited;
+  CarregarImagem(DataSet.FieldByName('IMAGEM_ALUNO'));
+end;
 
 procedure TDMCadAluno2.DataModuleCreate(Sender: TObject);
 begin
