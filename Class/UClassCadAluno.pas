@@ -11,6 +11,8 @@ Type
     Class procedure ConfigurarCampos(Fields: TFields); override;
     class function CampoChave: String; override;
     Class function NomeTabela: String; override;
+    Class function SQLConsulta: String; override;
+    Class Function DescricaoTabela: String; override;
   End;
 
 implementation
@@ -31,6 +33,16 @@ begin
     'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)' + #13 +
     'where alunos.codigo_aluno = :COD';
    // 'Order by alunos.codigo_aluno';
+
+end;
+
+class function TClassCadAluno.SQLConsulta: String;
+begin
+  Result:= 'Select ALUNOS.CODIGO_ALUNO,' + #13 +
+           'ALUNOS.NOME_ALUNO,' + #13 +
+           'ESCOLARIDADE.DESCRICAO_ESCOLARIDADE' + #13 +
+           'from ALUNOS' + #13 +
+           'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)';
 
 end;
 
@@ -75,9 +87,14 @@ begin
     Field.ProviderFlags := [pfInKey, pfInUpdate ,pfInWhere];
 end;
 
+class function TClassCadAluno.DescricaoTabela: String;
+begin
+  Result:= 'Alunos';
+end;
+
 class function TClassCadAluno.NomeTabela: String;
  begin
-  Result:= 'ALUNOS';
+  Result:= 'Alunos';
  end;
 
 end.

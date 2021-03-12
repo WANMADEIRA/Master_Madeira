@@ -22,7 +22,6 @@ type
     Panel4: TPanel;
     SpeedButton1: TSpeedButton;
     Image1: TImage;
-    JvTreeView1: TJvTreeView;
     procedure CADalunoClick(Sender: TObject);
     procedure CadEscolaClick(Sender: TObject);
 

@@ -7,7 +7,7 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
   Vcl.ExtCtrls, Vcl.ComCtrls, UClassPaiCadastro, UDMPaiCadastro, Data.DB,
-  Vcl.Imaging.jpeg, JvExMask, JvToolEdit, JvBaseEdits;
+  Vcl.Imaging.jpeg, JvExMask, JvToolEdit, JvBaseEdits, UCadConsulta;
 
 type
   TFPaiCadastro = class(TForm)
@@ -40,6 +40,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure PanelpaiExit(Sender: TObject);
     procedure EditCodigoKeyPress(Sender: TObject; var Key: Char);
+    procedure EditCodigoButtonClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -119,6 +120,18 @@ begin
 end;
 
 
+
+procedure TFPaiCadastro.EditCodigoButtonClick(Sender: TObject);
+begin
+  FConsulta:= TFConsulta.Create(SELF);
+ TRY
+   FConsulta.ClassConsulta := DMPaiCadastro.FClassFilha;
+   FConsulta.ShowModal;
+   abort
+ FINALLY
+   FreeAndNil(Fconsulta);
+ END;
+end;
 
 procedure TFPaiCadastro.EditCodigoKeyPress(Sender: TObject; var Key: Char);
 begin

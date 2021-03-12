@@ -11,6 +11,8 @@ Type
     Class procedure ConfigurarCampos(Fields: TFields); virtual;
     Class function NomeTabela: String; virtual;
     Class function CampoChave: String; virtual;
+    Class Function SQLCOnsulta: String; virtual;
+    Class Function DescricaoTabela: String; Virtual;
   End;
 
 implementation
@@ -23,6 +25,11 @@ begin
 
 end;
 
+class function TClassPaiCadastro.SQLCOnsulta: String;
+begin
+
+end;
+
 class function TClassPaiCadastro.CampoChave: String;
 begin
  // Result := 'CODIGO_ALUNO';
@@ -32,6 +39,11 @@ class procedure TClassPaiCadastro.ConfigurarCampos(Fields: TFields);
 
 begin
 
+
+end;
+
+class function TClassPaiCadastro.DescricaoTabela: String;
+begin
 
 end;
 
