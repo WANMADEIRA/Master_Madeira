@@ -19,8 +19,6 @@ type
     CADaluno: TSpeedButton;
     Panel2: TPanel;
     CadEscola: TSpeedButton;
-    Panel4: TPanel;
-    SpeedButton1: TSpeedButton;
     Image1: TImage;
     procedure CADalunoClick(Sender: TObject);
     procedure CadEscolaClick(Sender: TObject);
@@ -50,7 +48,7 @@ end;
 
 procedure TPrincipal.CADalunoClick(Sender: TObject);
 begin
-  FCadAluno2 := TFCadAluno2.Create(self);
+    FCadAluno2 := TFCadAluno2.Create(self);
   FCadAluno2.ShowModal;
 end;
 

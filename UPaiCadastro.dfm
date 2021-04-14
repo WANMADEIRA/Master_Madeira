@@ -3159,7 +3159,7 @@ object FPaiCadastro: TFPaiCadastro
     TabOrder = 2
     object BtnInsert: TButton
       Left = 15
-      Top = 40
+      Top = 24
       Width = 75
       Height = 25
       Caption = 'Inserir'
@@ -3168,7 +3168,7 @@ object FPaiCadastro: TFPaiCadastro
     end
     object BtnGravar: TButton
       Left = 15
-      Top = 104
+      Top = 73
       Width = 75
       Height = 25
       Caption = 'Gravar'
@@ -3177,7 +3177,7 @@ object FPaiCadastro: TFPaiCadastro
     end
     object BtnExcluir: TButton
       Left = 15
-      Top = 232
+      Top = 173
       Width = 75
       Height = 25
       Caption = 'Excluir'
@@ -3186,12 +3186,20 @@ object FPaiCadastro: TFPaiCadastro
     end
     object BtnCancelar: TButton
       Left = 15
-      Top = 168
+      Top = 123
       Width = 75
       Height = 25
       Caption = 'Cancelar'
       TabOrder = 3
       OnClick = BtnCancelarClick
+    end
+    object buttRelatorio: TButton
+      Left = 15
+      Top = 223
+      Width = 75
+      Height = 25
+      Caption = 'Relatorio'
+      TabOrder = 4
     end
   end
   object DS: TDataSource

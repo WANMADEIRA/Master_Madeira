@@ -18,7 +18,8 @@ uses
   UCadEscolaridade in 'UCadEscolaridade.pas' {FCadEscolaridade},
   UDMCadEscolaridade in 'UDMCadEscolaridade.pas' {DMCadEscolaridade: TDataModule},
   UCadPrincipal in 'UCadPrincipal.pas' {Principal},
-  UCadConsulta in 'UCadConsulta.pas' {FConsulta};
+  UCadConsulta in 'UCadConsulta.pas' {FConsulta},
+  URelatorio in 'URelatorio.pas' {FRelatorio};
 
 {$R *.res}
 
@@ -28,6 +29,5 @@ begin
   TStyleManager.TrySetStyle('Glossy');
   Application.CreateForm(TDMConexao, DMConexao);
   Application.CreateForm(TPrincipal, Principal);
-  Application.CreateForm(TFConsulta, FConsulta);
   Application.Run;
 end.

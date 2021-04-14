@@ -27,6 +27,7 @@ type
     BtnExcluir: TButton;
     BtnCancelar: TButton;
     EditCodigo: TJvCalcEdit;
+    buttRelatorio: TButton;
     procedure FormCreate(Sender: TObject);
     procedure BtnInsertClick(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -123,10 +124,13 @@ end;
 
 procedure TFPaiCadastro.EditCodigoButtonClick(Sender: TObject);
 begin
-  FConsulta:= TFConsulta.Create(SELF);
+   FConsulta:= TFConsulta.Create(SELF);
  TRY
-   FConsulta.ClassConsulta := DMPaiCadastro.FClassFilha;
+   FConsulta.fClasseFilha := DMPaiCadastro.FClassFilha;
    FConsulta.ShowModal;
+   EditCodigo.AsInteger := (FConsulta.RetornoConsulta);
+   DMPaiCadastro.AbrirCadastro(EditCodigo.AsInteger);
+
    abort
  FINALLY
    FreeAndNil(Fconsulta);

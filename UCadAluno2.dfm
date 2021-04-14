@@ -14,6 +14,10 @@ inherited FCadAluno2: TFCadAluno2
   end
   inherited PGPrincipal: TPageControl
     inherited Principal: TTabSheet
+      ExplicitLeft = 4
+      ExplicitTop = 24
+      ExplicitWidth = 550
+      ExplicitHeight = 267
       object Label2: TLabel
         Left = 24
         Top = 77
@@ -179,6 +183,9 @@ inherited FCadAluno2: TFCadAluno2
   inherited Panel1: TPanel
     Top = 67
     ExplicitTop = 67
+    inherited buttRelatorio: TButton
+      OnClick = buttRelatorioClick
+    end
   end
   object OpenPictureDialog: TOpenPictureDialog
     DefaultExt = '*.jpg'

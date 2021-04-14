@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UPaiCadastro, Vcl.StdCtrls, Vcl.Mask,
   Vcl.DBCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, UClassCadAluno, UDMCadAluno2,
   Data.DB, Vcl.Grids, Vcl.DBGrids, Vcl.Imaging.jpeg, Vcl.ExtDlgs, JvDBImage,
-  JvExMask, JvToolEdit, JvBaseEdits;
+  JvExMask, JvToolEdit, JvBaseEdits, URelatorio;
 
 type
   TFCadAluno2 = class(TFPaiCadastro)
@@ -34,6 +34,7 @@ type
     imgAluno: TImage;
     procedure FormCreate(Sender: TObject);
     procedure JvDBImage1Click(Sender: TObject);
+    procedure buttRelatorioClick(Sender: TObject);
 
 
   private
@@ -61,6 +62,17 @@ uses UDMPaiCadastro;
 
 
 
+
+procedure TFCadAluno2.buttRelatorioClick(Sender: TObject);
+begin
+  inherited;
+ FRelatorio:= TFRelatorio.Create(self);
+ try
+   FRelatorio.ShowModal
+ finally
+   FreeAndNil(FRelatorio);
+ end;
+end;
 
 procedure TFCadAluno2.CarregarImagem(Field: TField);
 var

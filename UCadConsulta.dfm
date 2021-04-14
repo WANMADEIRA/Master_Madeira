@@ -166,6 +166,7 @@ object FConsulta: TFConsulta
         00CC000000C90000008D00000048000000030000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
       ParentFont = False
+      OnClick = PesquisabuttonClick
     end
     object SpeedButton2: TSpeedButton
       Left = 537
@@ -310,15 +311,17 @@ object FConsulta: TFConsulta
         00CC000000C90000008D00000048000000030000000000000000000000000000
         0000000000000000000000000000000000000000000000000000}
       ParentFont = False
+      OnClick = SpeedButton2Click
     end
-    object ComboBox1: TComboBox
+    object ccbPEQUISA: TComboBox
       Left = 15
       Top = 23
       Width = 145
-      Height = 21
+      Height = 22
+      Style = csOwnerDrawFixed
       TabOrder = 0
     end
-    object Edit1: TEdit
+    object edtvalor: TEdit
       Left = 166
       Top = 23
       Width = 258
@@ -336,12 +339,14 @@ object FConsulta: TFConsulta
     Width = 656
     Height = 292
     Align = alClient
+    DataSource = DS
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnDblClick = JvDBGrid1DblClick
     SelectColumnsDialogStrings.Caption = 'Select columns'
     SelectColumnsDialogStrings.OK = '&OK'
     SelectColumnsDialogStrings.NoSelectionWarning = 'At least one column must be visible!'
@@ -357,6 +362,7 @@ object FConsulta: TFConsulta
   object CDSPESQUISA: TClientDataSet
     Aggregates = <>
     Params = <>
+    ReadOnly = True
     Left = 520
     Top = 208
   end

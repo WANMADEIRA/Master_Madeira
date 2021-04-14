@@ -55,7 +55,12 @@ object DMConexao: TDMConexao
     MaxBlobSize = -1
     Params = <>
     SQLConnection = SQLConnection1
-    Left = 192
-    Top = 112
+    Left = 48
+    Top = 128
+  end
+  object DSPCommand: TDataSetProvider
+    DataSet = SQLDS
+    Left = 152
+    Top = 128
   end
 end

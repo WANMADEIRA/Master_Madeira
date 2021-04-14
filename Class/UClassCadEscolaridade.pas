@@ -7,9 +7,11 @@ uses
  Type
    TClassCadEscolaridade = Class (TClassPaiCadastro)
     Class function SQLCadastro: String; override;
+    Class function SQLConsulta: String; override;
     Class procedure ConfigurarCampos(Fields: TFields); override;
     Class function CampoChave: String; override;
     Class function NomeTabela: String; override;
+    Class Function DescricaoTabela: String; override;
  End;
 
 implementation
@@ -34,6 +36,11 @@ var
 
     end;
  end;
+class function TClassCadEscolaridade.DescricaoTabela: String;
+begin
+ Result:= 'Escolaridade';
+end;
+
 class function TClassCadEscolaridade.NomeTabela: String;
 begin
    Result := 'ESCOLARIDADE';
@@ -57,6 +64,14 @@ begin
  'ALUNOS.ESCOLARIDADE_CODIGO'              +#13+
  'FROM ESCOLARIDADE                       '+#13+
  'WHERE ESCOLARIDADE.CODIGO_ESCOLARIDADE = :CODIGO_ESCOLARIDADE';}
+end;
+
+class function TClassCadEscolaridade.SQLConsulta: String;
+begin
+ Result:= 'Select escolaridade.codigo_escolaridade,' + #13 +
+           'escolaridade.descricao_escolaridade' + #13 +
+
+           'from ESCOLARIDADE';
 end;
 
 end.

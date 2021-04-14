@@ -77,8 +77,11 @@ begin
       Field.DisplayLabel := 'CIDADE DO ALUNO'
     ELSE if Field.FieldName = 'ESTADO_END' then
       Field.DisplayLabel := 'ESTADO'
+    else if Field.FieldName = 'DESCRICAO_ESCOLARIDADE' then
+      Field.DisplayLabel := 'ESCOLARIDADE'
     ELSE if Field.FieldName = 'NUMERO_END' then
       Field.DisplayLabel := 'NÚMERO';
+
   end;
 
   if (Field.FieldName <> CampoChave) THEN
