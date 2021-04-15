@@ -80,4 +80,15 @@ object FRelatorio: TFRelatorio
     Left = 296
     Top = 18
   end
+  object frxDBDatasetDet: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    BCDToCurrency = False
+    Left = 80
+    Top = 24
+  end
+  object DS: TDataSource
+    Left = 16
+    Top = 32
+  end
 end
