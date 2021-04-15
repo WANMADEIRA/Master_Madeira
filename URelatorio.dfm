@@ -27,7 +27,6 @@ object FRelatorio: TFRelatorio
       Height = 41
       Caption = 'Editar Relatorio'
       TabOrder = 0
-      OnClick = Editar_RelatorioClick
     end
     object Gerar_Relatorio: TButton
       Left = 224

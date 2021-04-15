@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxdesgn,
-  frxDBSet, UDMConexao, Data.DB;
+  frxDBSet, UDMConexao, Data.DB, UClassRelAluno;
 
 type
   TFRelatorio = class(TForm)
@@ -17,7 +17,7 @@ type
     frxDBDatasetDet: TfrxDBDataset;
     DS: TDataSource;
     procedure Gerar_RelatorioClick(Sender: TObject);
-    procedure Editar_RelatorioClick(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -34,13 +34,11 @@ uses
 
 {$R *.dfm}
 
-procedure TFRelatorio.Editar_RelatorioClick(Sender: TObject);
+{procedure TFRelatorio.Editar_RelatorioClick(Sender: TObject);
 var
-CDSRel: TClientdataset;
-CDSRelDet: Tclientdataset;
+
 begin
- CDSRel:= TClientdataset.Create(self);
- CDSRelDet:= Tclientdataset.Create(self);
+
   try
     CDSRel.Data:= DMConexao.ExecuteReader('Select * from Alunos');
     CDSRelDet.Data:= DMConexao.ExecuteReader('select * from ENDERECO');
@@ -63,34 +61,27 @@ begin
     FreeAndNil(CDSRelDet);
   end;
 
-end;
+end;}
 
 procedure TFRelatorio.Gerar_RelatorioClick(Sender: TObject);
  var
-CDSRel: TClientdataset;
-CDSRelDet: Tclientdataset;
+  RelAluno: TClassRelAluno;
 begin
- CDSRel:= TClientdataset.Create(self);
- CDSRelDet:= Tclientdataset.Create(self);
+  RelAluno:= TClassRelAluno.create;
   try
-    CDSRel.Data:= DMConexao.ExecuteReader('Select * from Alunos');
-    CDSRelDet.Data:= DMConexao.ExecuteReader('select * from ENDERECO');
-    frxDBDataset.DataSet := CDSRel;
-    frxDBDatasetDet.DataSet := CDSRelDet;
+    RelAluno.Processar();
+    RelAluno.MostrarRelatorio();
+
+    {frxDBDataset.DataSet := RelAluno.CDSAluno;
+    frxDBDatasetDet.DataSet := RelAluno.CDSEndereco;
     frxDBDataset.UserName:= 'frPrincipal';
     frxDBDatasetDET.UserName:= 'frEndereco';
     frxReport.DataSets.Add(frxDBDataset);
     frxReport.DataSets.Add(frxDBDatasetdet);
+    DS.DataSet:= RelAluno.CDSAluno;}
 
-    DS.DataSet:= CDSRel;
-    CDSRelDet.MasterSource:= DS;
-    CDSRelDet.MasterFields:= 'CODIGO_ALUNO';
-    CDSRelDet.IndexFieldNames:= 'ALUNO_END';
-
-    frxreport.loadFromfILE('RelAluno.fr3');
-    frxReport.ShowReport();
   finally
-    FreeAndNil(CDSRel);
+    RelAluno.free;
   end;
   end;
 end.

@@ -19,7 +19,8 @@ uses
   UDMCadEscolaridade in 'UDMCadEscolaridade.pas' {DMCadEscolaridade: TDataModule},
   UCadPrincipal in 'UCadPrincipal.pas' {Principal},
   UCadConsulta in 'UCadConsulta.pas' {FConsulta},
-  URelatorio in 'URelatorio.pas' {FRelatorio};
+  URelatorio in 'URelatorio.pas' {FRelatorio},
+  UClassRelAluno in 'Class\UClassRelAluno.pas';
 
 {$R *.res}
 
