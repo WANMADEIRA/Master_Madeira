@@ -20,7 +20,8 @@ uses
   UCadPrincipal in 'UCadPrincipal.pas' {Principal},
   UCadConsulta in 'UCadConsulta.pas' {FConsulta},
   URelatorio in 'URelatorio.pas' {FRelatorio},
-  UClassRelAluno in 'Class\UClassRelAluno.pas';
+  UClassRelAluno in 'Class\UClassRelAluno.pas',
+  UClassPaiRel in 'Class\UClassPaiRel.pas';
 
 {$R *.res}
 

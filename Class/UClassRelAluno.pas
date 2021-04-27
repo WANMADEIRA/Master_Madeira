@@ -13,6 +13,7 @@ private
    FListafrxDataSet: array of TfrxDBDataSet;
    FCDSAluno, FCDSendereco : TClientDataSet;
    Ffrxreport: TfrxReport;
+   FListadeCDS: array of TClientDataSet;
    function SQLAluno: String;
    function SQLEndereco: String;
 
@@ -25,7 +26,7 @@ public
    procedure Processar();
    property CDSAluno: TClientDataSet read FCDSAluno;
    property CDSEndereco: TClientDataSet read FCDSEndereco;
-
+   function RetornarCDS(Indice: Integer): TClientDataSet;
 end;
 
 implementation
@@ -100,12 +101,23 @@ procedure TClassRelAluno.RegistraCDS(Nome: String; CDS: TCLientDataSet);
  Var
   frxTemp: TfrxDBDataset;
 begin
+  SetLength(FListadeCDS, Length(FListadeCDS)+1);
+  FListadeCDS[high(FListadeCDS)]:= CDS;
 
   frxTemp:= TfrxDBDataset.Create(nil);
   frxTemp.UserName:= Nome;
   frxTemp.DataSet:= CDS;
 
   Ffrxreport.DataSets.Add(frxTemp);
+end;
+
+function TClassRelAluno.RetornarCDS(Indice: Integer): TClientDataSet;
+var
+I: Integer;
+begin
+ Result:= nil;
+ if Indice < Length (FListadeCDS) then
+  Result:= FListadeCDS[Indice]
 end;
 
 end.

@@ -70,6 +70,12 @@ begin
   RelAluno:= TClassRelAluno.create;
   try
     RelAluno.Processar();
+
+    DS.DataSet:= RelAluno.RetornarCDS(0);
+    RelAluno.RetornarCDS(1).MasterSource:= DS;
+    RelAluno.RetornarCDS(1).MasterFields:= 'CODIGO_ALUNO';
+    RelAluno.RetornarCDS(1).IndexFieldNames:= 'ALUNO_END';
+
     RelAluno.MostrarRelatorio();
 
     {frxDBDataset.DataSet := RelAluno.CDSAluno;
