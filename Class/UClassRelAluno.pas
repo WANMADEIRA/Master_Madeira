@@ -3,42 +3,44 @@ unit UClassRelAluno;
 interface
 
 uses
-  System.Classes, Datasnap.DBClient, UDMConexao, frxClass, frxDBSet;
+  System.Classes, Datasnap.DBClient, UDMConexao, frxClass, frxDBSet,
+  UClassPaiRel;
 
 type
-   TClassRelAluno = class(TPersistent)
+   TClassRelAluno = class(TClassPaiRel)
 
 
 private
    FListafrxDataSet: array of TfrxDBDataSet;
    FCDSAluno, FCDSendereco : TClientDataSet;
-   Ffrxreport: TfrxReport;
-   FListadeCDS: array of TClientDataSet;
    function SQLAluno: String;
    function SQLEndereco: String;
 
-   procedure RegistraCDS(Nome: String; CDS: TCLientDataSet);
-public
-   constructor Create();
-   destructor Destroy;
 
-   procedure MostrarRelatorio();
-   procedure Processar();
+public
+   //constructor Create(); [ta no pai]
+   //destructor Destroy;
+
+
+   procedure Processar(); override;
+   constructor Create; override;
    property CDSAluno: TClientDataSet read FCDSAluno;
    property CDSEndereco: TClientDataSet read FCDSEndereco;
-   function RetornarCDS(Indice: Integer): TClientDataSet;
+
 end;
 
 implementation
 
 { TClassRelAluno }
 
-constructor TClassRelAluno.Create;
+constructor TClassRelAluno.create;
 begin
  inherited;
+
+  FModeloRel:= 'RelAluno.fr3';
   FCDSAluno := TClientDataSet.Create(nil);
   FCDSendereco:= TClientDataSet.Create(nil);
-  Ffrxreport:= TfrxReport.Create(nil);
+
 end;
 
 function TClassRelAluno.SQLEndereco: String;
@@ -69,19 +71,6 @@ end;
 
 
 
-destructor TClassRelAluno.Destroy;
-begin
-  FCDSAluno.Free;
-  FCDSendereco.Free;
-  Ffrxreport.Free;
-    inherited;
-end;
-
-procedure TClassRelAluno.MostrarRelatorio;
-begin
- Ffrxreport.loadFromfILE('RelAluno.fr3');
- Ffrxreport.ShowReport();
-end;
 
 procedure TClassRelAluno.Processar;
 begin
@@ -92,32 +81,5 @@ begin
  RegistraCDS('frEndereco', FCDSendereco);
 end;
 
-
-
-
-
-
-procedure TClassRelAluno.RegistraCDS(Nome: String; CDS: TCLientDataSet);
- Var
-  frxTemp: TfrxDBDataset;
-begin
-  SetLength(FListadeCDS, Length(FListadeCDS)+1);
-  FListadeCDS[high(FListadeCDS)]:= CDS;
-
-  frxTemp:= TfrxDBDataset.Create(nil);
-  frxTemp.UserName:= Nome;
-  frxTemp.DataSet:= CDS;
-
-  Ffrxreport.DataSets.Add(frxTemp);
-end;
-
-function TClassRelAluno.RetornarCDS(Indice: Integer): TClientDataSet;
-var
-I: Integer;
-begin
- Result:= nil;
- if Indice < Length (FListadeCDS) then
-  Result:= FListadeCDS[Indice]
-end;
 
 end.
