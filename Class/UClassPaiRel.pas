@@ -3,24 +3,32 @@ unit UClassPaiRel;
 interface
 
 uses
-  System.Classes, frxClass, Datasnap.DBClient;
+  System.Classes, frxClass, Datasnap.DBClient, frxDBSet;
+
+type
+ TRetornoRel = record
+   CDS: TClientDataSet;
+   FrxDbDataSet: TFrxDbdataSet;
+ end;
+
 
 type
 
-TClassPaiRel = class(TPersistent)
+ TClassPaiRel = class(TPersistent)
 
 
 
 public
  constructor create; virtual;
- destructor Destroy;
+ destructor Destroy; override;
  function RetornarCDS(Indice: Integer): TClientDataSet;
  procedure Processar(); virtual; abstract;
  procedure MostrarRelatorio();
 
 private
   FfrxReport: Tfrxreport;
-  FListadeCDS: array of TClientDataSet;
+  //FRetornoRel: TRetornoRel;
+  FListadeCDS: array of TRetornoRel;
 
 
 protected
@@ -31,7 +39,7 @@ end;
 implementation
 
 uses
-  System.SysUtils, frxDBSet;
+  System.SysUtils;
 
 { TClassPaiRel }
 
@@ -48,9 +56,13 @@ begin
 
   for I := Low(FListadeCDS) to High(FListadeCDS) do
    begin
-     FreeAndNil(FListadeCDS[I]);
+     FreeAndNil(FListadeCDS[I].CDS);
+     FreeAndNil(FListadeCDS[I].FrxDbDataSet);
    end;
 
+   SetLength(FListadeCDS,0);
+
+   Inherited;
 
 end;
 
@@ -67,13 +79,16 @@ Var
   frxTemp: TfrxDBDataset;
 begin
   SetLength(FListadeCDS, Length(FListadeCDS)+1);
-  FListadeCDS[high(FListadeCDS)]:= CDS;
 
   frxTemp:= TfrxDBDataset.Create(nil);
   frxTemp.UserName:= Nome;
   frxTemp.DataSet:= CDS;
 
-  Ffrxreport.DataSets.Add(frxTemp);
+  FListadeCDS[high(FListadeCDS)].CDS:= CDS;
+  FListadeCDS[High(FListadeCDS)].FrxDbDataSet:= frxTemp;
+
+
+  Ffrxreport.DataSets.Add(FListadeCDS[High(FListadeCDS)].FrxDbDataSet);
 end;
 
 function TClassPaiRel.RetornarCDS(Indice: Integer): TClientDataSet;
@@ -81,7 +96,7 @@ begin
  Result:= nil;
 
  if Indice < Length (FListadeCDS) then
-  Result:= FListadeCDS[Indice];
+  Result:= FListadeCDS[Indice].CDS;
 end;
 
 end.
