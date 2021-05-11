@@ -32,6 +32,11 @@ type
     Panel3: TPanel;
     JvDBImage1: TJvDBImage;
     imgAluno: TImage;
+    DBEdit1: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure JvDBImage1Click(Sender: TObject);
     procedure buttRelatorioClick(Sender: TObject);

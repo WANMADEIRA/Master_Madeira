@@ -2,8 +2,8 @@ object FRelatorio: TFRelatorio
   Left = 0
   Top = 0
   Caption = 'Relatorio de Aluno'
-  ClientHeight = 171
-  ClientWidth = 424
+  ClientHeight = 250
+  ClientWidth = 466
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,10 +14,24 @@ object FRelatorio: TFRelatorio
   Position = poDesktopCenter
   PixelsPerInch = 96
   TextHeight = 13
+  object A: TLabel
+    Left = 227
+    Top = 64
+    Width = 23
+    Height = 13
+    Caption = 'A'
+  end
+  object Aluno: TLabel
+    Left = 98
+    Top = 42
+    Width = 50
+    Height = 13
+    Caption = 'Cod.Aluno'
+  end
   object Panel1: TPanel
     Left = 0
-    Top = 106
-    Width = 425
+    Top = 194
+    Width = 465
     Height = 57
     TabOrder = 0
     object Editar_Relatorio: TButton
@@ -29,7 +43,7 @@ object FRelatorio: TFRelatorio
       TabOrder = 0
     end
     object Gerar_Relatorio: TButton
-      Left = 224
+      Left = 264
       Top = 8
       Width = 139
       Height = 41
@@ -37,6 +51,20 @@ object FRelatorio: TFRelatorio
       TabOrder = 1
       OnClick = Gerar_RelatorioClick
     end
+  end
+  object Edit1: TEdit
+    Left = 98
+    Top = 61
+    Width = 121
+    Height = 21
+    TabOrder = 1
+  end
+  object Edit2: TEdit
+    Left = 242
+    Top = 61
+    Width = 121
+    Height = 21
+    TabOrder = 2
   end
   object frxReport: TfrxReport
     Version = '5.3.14'
@@ -54,7 +82,7 @@ object FRelatorio: TFRelatorio
       ''
       'end.')
     Left = 200
-    Top = 16
+    Top = 136
     Datasets = <>
     Variables = <>
     Style = <>
@@ -76,18 +104,18 @@ object FRelatorio: TFRelatorio
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     BCDToCurrency = False
-    Left = 296
-    Top = 18
+    Left = 280
+    Top = 138
   end
   object frxDBDatasetDet: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     BCDToCurrency = False
-    Left = 80
-    Top = 24
+    Left = 96
+    Top = 136
   end
   object DS: TDataSource
     Left = 16
-    Top = 32
+    Top = 136
   end
 end

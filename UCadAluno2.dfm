@@ -13,11 +13,8 @@ inherited FCadAluno2: TFCadAluno2
     ExplicitHeight = 310
   end
   inherited PGPrincipal: TPageControl
+    ActivePage = TabSheet1
     inherited Principal: TTabSheet
-      ExplicitLeft = 4
-      ExplicitTop = 24
-      ExplicitWidth = 550
-      ExplicitHeight = 267
       object Label2: TLabel
         Left = 24
         Top = 77
@@ -174,6 +171,41 @@ inherited FCadAluno2: TFCadAluno2
         Height = 13
         Caption = 'NUMERO'
       end
+      object DBEdit1: TDBEdit
+        Left = 72
+        Top = 38
+        Width = 451
+        Height = 21
+        TabOrder = 0
+      end
+      object DBEdit3: TDBEdit
+        Left = 72
+        Top = 84
+        Width = 305
+        Height = 21
+        TabOrder = 1
+      end
+      object DBEdit4: TDBEdit
+        Left = 72
+        Top = 144
+        Width = 305
+        Height = 21
+        TabOrder = 2
+      end
+      object DBEdit5: TDBEdit
+        Left = 449
+        Top = 84
+        Width = 74
+        Height = 21
+        TabOrder = 3
+      end
+      object DBEdit6: TDBEdit
+        Left = 449
+        Top = 144
+        Width = 74
+        Height = 21
+        TabOrder = 4
+      end
     end
   end
   inherited Panelpai: TPanel
@@ -189,7 +221,7 @@ inherited FCadAluno2: TFCadAluno2
   end
   object OpenPictureDialog: TOpenPictureDialog
     DefaultExt = '*.jpg'
-    Left = 204
-    Top = 39
+    Left = 380
+    Top = 7
   end
 end

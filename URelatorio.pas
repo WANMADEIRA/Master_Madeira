@@ -16,6 +16,10 @@ type
     frxDBDataset: TfrxDBDataset;
     frxDBDatasetDet: TfrxDBDataset;
     DS: TDataSource;
+    Edit1: TEdit;
+    A: TLabel;
+    Edit2: TEdit;
+    Aluno: TLabel;
     procedure Gerar_RelatorioClick(Sender: TObject);
 
   private
