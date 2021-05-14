@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxdesgn,
-  frxDBSet, UDMConexao, Data.DB, UClassRelAluno;
+  frxDBSet, UDMConexao, Data.DB, UClassRelAluno, Vcl.Buttons, Vcl.Imaging.jpeg;
 
 type
   TFRelatorio = class(TForm)
@@ -20,6 +20,14 @@ type
     A: TLabel;
     Edit2: TEdit;
     Aluno: TLabel;
+    ListBox1: TListBox;
+    ListBox2: TListBox;
+    exiberel: TCheckBox;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    Image1: TImage;
     procedure Gerar_RelatorioClick(Sender: TObject);
 
   private
