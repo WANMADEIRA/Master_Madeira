@@ -11,6 +11,10 @@ type
 
 
 private
+
+   FFiltroAlunoInicial: Integer;
+   FFiltroAlunoFinal: Integer;
+
    FListafrxDataSet: array of TfrxDBDataSet;
    FCDSAluno, FCDSendereco : TClientDataSet;
    function SQLAluno: String;
@@ -30,6 +34,9 @@ public
 end;
 
 implementation
+
+uses
+  System.SysUtils;
 
 { TClassRelAluno }
 
@@ -65,7 +72,8 @@ begin
            'alunos.escolaridade_codigo,' +#13+
            'escolaridade.descricao_escolaridade' +#13+
            'from ALUNOS' +#13+
-           'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)';
+           'left join ESCOLARIDADE on (ESCOLARIDADE.CODIGO_ESCOLARIDADE = ALUNOS.ESCOLARIDADE_CODIGO)' +#13+
+           'where ALUNOS.CODIGO_ALUNO between ' + InttoStr(FFiltroAlunoInicial) + ' and ' + InttoStr (FFiltroAlunoFinal);
 end;
 
 
@@ -74,6 +82,9 @@ end;
 
 procedure TClassRelAluno.Processar;
 begin
+ FFiltroAlunoInicial:= ParametroPeloNome('FiltroAlnunIni');
+ FFiltroAlunoFinal:= ParametroPeloNome('FiltroAlnunFinal');
+
  FCDSAluno.Data:= DMConexao.ExecuteReader(SQLAluno);
  FCDSendereco.Data:= DMConexao.ExecuteReader(SQLEndereco);
 

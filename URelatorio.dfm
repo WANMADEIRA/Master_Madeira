@@ -17,7 +17,7 @@ object FRelatorio: TFRelatorio
   object A: TLabel
     Left = 227
     Top = 64
-    Width = 23
+    Width = 7
     Height = 13
     Caption = 'A'
   end

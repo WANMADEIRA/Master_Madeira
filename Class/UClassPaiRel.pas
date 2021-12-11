@@ -10,6 +10,11 @@ type
    CDS: TClientDataSet;
    FrxDbDataSet: TFrxDbdataSet;
  end;
+type
+  TParamRel = record
+   Nome: String;
+   Valor: String;
+end;
 
 
 type
@@ -19,13 +24,18 @@ type
 
 
 public
+ FlistaParamRel: array of TParamRel;
  constructor create; virtual;
  destructor Destroy; override;
  function RetornarCDS(Indice: Integer): TClientDataSet;
  procedure Processar(); virtual; abstract;
  procedure MostrarRelatorio();
+ procedure GravarParametros(ANome: String; AValor: String);
+
+ function ParametroPeloNome(ANome: String): Integer;
 
 private
+
   FfrxReport: Tfrxreport;
   //FRetornoRel: TRetornoRel;
   FListadeCDS: array of TRetornoRel;
@@ -68,10 +78,32 @@ end;
 
 
 
+procedure TClassPaiRel.GravarParametros(ANome, AValor: String);
+begin
+ SetLength(FlistaParamRel, Length(FlistaParamRel)+1);
+ FlistaParamRel[High(FlistaParamRel)].Nome:= ANome;
+ FlistaParamRel[High(FlistaParamRel)].Valor:= AValor;
+end;
+
 procedure TClassPaiRel.MostrarRelatorio;
 begin
  Ffrxreport.loadFromfILE(FModeloRel);
  Ffrxreport.ShowReport();
+end;
+
+function TClassPaiRel.ParametroPeloNome(ANome: String): Integer;
+var
+  I: Integer;
+begin
+ for I := Low(FlistaParamRel) to High(FlistaParamRel) do
+ begin
+   if FlistaParamRel[i].Nome = ANome then
+   begin
+     Result:= StrtoIntDef(FlistaParamRel[i].Valor, -1);
+     break;
+   end;
+ end;
+
 end;
 
 procedure TClassPaiRel.RegistraCDS(Nome: String; CDS: TCLientDataSet);

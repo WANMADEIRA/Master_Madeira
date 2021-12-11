@@ -23,6 +23,7 @@ type
     procedure Gerar_RelatorioClick(Sender: TObject);
 
   private
+  //  Procedure ConfigurarConexao;
     { Private declarations }
   public
     { Public declarations }
@@ -67,12 +68,16 @@ begin
 
 end;}
 
+
+
 procedure TFRelatorio.Gerar_RelatorioClick(Sender: TObject);
  var
   RelAluno: TClassRelAluno;
 begin
   RelAluno:= TClassRelAluno.create;
   try
+    RelAluno.GravarParametros('FiltroAlnunIni', Edit1.Text);
+    RelAluno.GravarParametros('FiltroAlnunFinal', Edit2.Text);
     RelAluno.Processar();
 
     DS.DataSet:= RelAluno.RetornarCDS(0);
